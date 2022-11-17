@@ -1,0 +1,34 @@
+import React from 'react'
+import { CardFind } from '../CardFind'
+
+const data = [
+    {
+        id: 1,
+        image: "https://miro.medium.com/max/1024/1*vxjAHkrXbGG6gOiPZgjeZA.jpeg",
+        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea maxime libero expedita laboriosam alias esse eum omnis quasi veniam! Dicta, ipsam! Ut voluptas sunt pariatur, provident quae reprehenderit exercitationem quam."
+    },
+    {
+        id: 2,
+        image: "https://www.ikusi.com/wp-content/uploads/2022/06/post_thumbnail-4efabca9bd56b38edc0058c4ba006481.jpeg",
+        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea maxime libero expedita laboriosam alias esse eum omnis quasi veniam! Dicta, ipsam! Ut voluptas sunt pariatur, provident quae reprehenderit exercitationem quam."
+    },
+    {
+        id: 3,
+        image: "https://en-red.mx/wp-content/uploads/2019/12/5_grandes_mitos-1080x675.jpg",
+        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea maxime libero expedita laboriosam alias esse eum omnis quasi veniam! Dicta, ipsam! Ut voluptas sunt pariatur, provident quae reprehenderit exercitationem quam."
+    },
+]
+
+export const SectionFind = () => {
+  return (
+    <div className="section-find">
+        <div className="section-find__title">
+            <h3>¿Qué encontrarás en ITenseño?</h3>
+            <div className='border'></div>
+        </div>
+        <div className="section-find__list">
+            {data.map(item => (<CardFind key={item.id} description={item.description} image={item.image}/>))}
+        </div>
+    </div>
+  )
+}

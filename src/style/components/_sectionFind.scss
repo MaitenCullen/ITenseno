@@ -1,0 +1,35 @@
+.section-find {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    h3 {
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 40px;
+        line-height: 60px;
+        text-align: center;
+        color: #000000;
+    }
+    &__list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 130px;
+        //padding: 0rem 200px;
+        justify-content: center;
+    }
+    &__title {
+        position: relative;
+        width: fit-content;
+        margin: 70px 0px;
+        .border {
+            z-index: -1;
+            background: #B2EBF2;
+            height: 20px;
+            position: absolute;
+            bottom: 5px;
+            width: 100%;
+        }
+    }
+}
