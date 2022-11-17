@@ -9,7 +9,8 @@ export const CartImages = () => {
   return (
     <div id="cart-images">
       <div className="title">
-        <h2>Recomendaciones IT de la Semana</h2>
+        <p>Recomendaciones IT de la Semana</p>
+        <div className="bar"></div>
       </div>
       <div className="profiles">
         <div className="cart">
@@ -63,6 +64,11 @@ export const CartImages = () => {
             estrellas
           </div>
         </div>
+      </div>
+      <div className="more">
+        <button className="more-btn">
+          VER MÁS
+        </button>
       </div>
     </div>
   );
