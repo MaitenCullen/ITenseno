@@ -9,26 +9,20 @@ import { SectionTechnologies } from '../components/home/SectionTechnologies'
 
 export const Home = () => {
   return (
-    <div>
-    <div>
+    <>
       <CartHome/>
-    </div>
-    <div>
-      <CartButtons/>
-    </div>
-    <div>
+
+    <CartButtons/>
+
     <CartData/>
-    </div>
-    <div>
-      <CartImages/>
-    </div>
-    <div>
+
+    <CartImages/>
+
     <CartAbout/>
-    </div>
+
     <SectionTechnologies/>
     <SectionFind/>
-    </div>
-   
+    </>
 
   )
 }
