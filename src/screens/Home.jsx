@@ -7,23 +7,19 @@ import { CartImages } from '../components/CartImages'
 
 export const Home = () => {
   return (
-    <div>
-    <div>
-      <CartHome/>
-    </div>
-    <div>
-      <CartButtons/>
-    </div>
-    <div>
-    <CartData/>
-    </div>
-    <div>
-      <CartImages/>
-    </div>
-    <div>
-    <CartAbout/>
-    </div>
-    </div>
+    <>
+  <CartHome/>
+
+<CartButtons/>
+
+<CartData/>
+
+<CartImages/>
+
+<CartAbout/>
+    </>
+    
+
    
 
   )
