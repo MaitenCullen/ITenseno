@@ -1,15 +1,13 @@
 import { NavBar } from './components/NavBar';
-import logo from './logo.svg';
-import { Footer } from './components/Footer';
+import Footer from './components/Footer';
 import { Home } from './screens/Home';
-
 
 function App() {
   return (
     <div className="App">
-      <NavBar/>
-      <Home/>
-      <Footer/>
+      {/* <NavBar/> */}
+      {/* <Home/> */}
+      <Footer />
     </div>
   );
 }

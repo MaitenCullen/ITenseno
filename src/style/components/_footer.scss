@@ -1,0 +1,34 @@
+@import '../base/settings';
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $darkBlue;
+    color: #fff;
+    padding: 0 25px 25px;
+
+    &-logo {
+        font-size: 1.5rem;
+        font-weight: 700;
+    }
+
+    &-info {
+        p:nth-child(1){
+            font-weight: 600;
+        }
+
+        font-weight: 400;
+
+        div:nth-child(2){
+            display: flex;
+            justify-content: space-between;
+
+            & a {
+                font-weight: 100;
+                text-decoration: none;
+                color: #fff;
+            }
+        }
+    }
+}
