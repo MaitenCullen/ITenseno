@@ -1,5 +1,4 @@
-import { NavBar } from './components/NavBar';
-import logo from './logo.svg';
+import DrawerAppBar from './components/NavBar';
 import { Footer } from './components/Footer';
 import { Home } from './screens/Home';
 
@@ -7,7 +6,7 @@ import { Home } from './screens/Home';
 function App() {
   return (
     <div className="App">
-      <NavBar/>
+      <DrawerAppBar/>
       <Home/>
       <Footer/>
     </div>
