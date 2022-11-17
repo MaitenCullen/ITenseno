@@ -9,16 +9,16 @@ export const Home = () => {
   return (
     <div>
     <div>
-      <CartHome />
+      {/* <CartHome /> */}
     </div>
     <div>
-      <CartButtons />
+      {/* <CartButtons /> */}
     </div>
     <div>
-    <CartData />
+    {/* <CartData /> */}
     </div>
     <div>
-      <CartImages />
+      {/* <CartImages /> */}
     </div>
     <div>
       <AboutUs />
