@@ -1,6 +1,48 @@
 
 @import '../base/settings';
 
-.navBar_container{
-    background: $darkBlue;
+#ITenseno{
+    font-size: 30px;
+    font-weight: 700;
+    color:$blue;
+    font-family: 'Poppins', sans-serif;
 }
+
+#Navbar1{
+    background-color: #FFFFFF;
+    font-family: 'Poppins';
+   
+}
+
+#navLinks{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+
+   .link1 {
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 18px;
+        color: black;
+        margin-left: 2%;
+    }
+
+    #login{
+        color:$blue;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 27px;
+        
+    }
+    #check{
+        color:$orange;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 27px;
+    }
+}
+
+

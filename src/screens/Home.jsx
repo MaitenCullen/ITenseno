@@ -1,28 +1,21 @@
-import AboutUs from '../components/AboutUs';
-
-import { CartButtons } from '../components/CartButtons';
-import { CartData } from '../components/CartData';
-import { CartHome } from '../components/CartHome';
-import { CartImages } from '../components/CartImages';
+import React from 'react'
+import { CartHome } from '../components/CartHome'
+import { CartImages } from '../components/CartImages'
+import { SectionFind } from '../components/home/SectionFind'
+import { SectionTechnologies } from '../components/home/SectionTechnologies'
+import AboutUs from '../components/AboutUs'
 
 export const Home = () => {
   return (
-    <div>
-    <div>
-      <CartHome />
-    </div>
-    <div>
-      <CartButtons />
-    </div>
-    <div>
-    <CartData />
-    </div>
-    <div>
-      <CartImages />
-    </div>
-    <div>
-      <AboutUs />
-    </div>
-    </div>
+    <>
+      <CartHome/>
+      <SectionTechnologies/>
+      <SectionFind/>
+
+      <CartImages/>
+
+      <AboutUs/>
+    </>
+
   )
 }
