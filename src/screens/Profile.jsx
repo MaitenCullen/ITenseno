@@ -2,55 +2,143 @@ import React from 'react'
 import { useForm } from 'react-hook-form'
 import data from '../mock/Data'
 import { LinkTechnologie } from '../components/LinkTechnologie'
+import { Link } from 'react-router-dom'
 
-const Profile = () => {
 
-    const {register, errors, handleSubmit} = useForm();
+function Profile({ props }) {
+
+    const { register, errors, handleSubmit } = useForm()
 
     const onSubmit = (data, e) => {
         console.log(data)
         e.target.reset()
     }
-  return (
+    return (
+        <div className='divProfile'>
+            <div className='divInfo'>
+            <h3 id='nameProfile'>Hola,{props}!</h3>
+            <div className='divInfoData'>
+                <h5> INFORMACION PERSONAL</h5>
+                <Link style={{ textDecoration: 'none', color: 'black', borderTop:'1px solid #D9D9D9'}}>Tus clases</Link>
+                <Link style={{ textDecoration: 'none', color: 'black', borderTop:'1px solid #D9D9D9'}}>Salir</Link>
+                <Link>XXXXX</Link>
+            </div>
+            </div>        
+            <div className='divProfileData'>
+            <h3>INFORMACION PERSONAL</h3> 
+            <div className='divBasicInformation'>
+                <h3>Información Básica</h3>
+                <img src='./public/img/profile.png' />
+                <form onSubmit={handleSubmit(onSubmit)}>
+                    <label htmlFor='username'>
+                        <input
+                            type="text"
+                            name="name"
+                            placeholder='Nombre y Apellido'
+                            {...register("name", { required: true })} />
+                    </label>
+                    <label>
+                        <input
+                            type="email"
+                            name='email'
+                            placeholder='Correo Electronico'
+                            {...register("email", { required: true })} />
+                    </label>
+                    <label>
+                        <input
+                            type="text"
+                            name='RolIT'
+                            placeholder='Rol IT'
+                            {...register("RolIT", { required: true })} />
+                    </label>
+                    <label>
+                        <input
+                            type="text"
+                            name='XXX'
+                            placeholder='XXX'
+                            {...register("XXX", { required: true })} />
+                    </label>
+                    <button type="submit" className="buttonProfile">
+                        Guardar
+                    </button>
+                </form>
+            </div>
+            <div className='divTechnologies'>
+                <div className="section-technologies__list">
+                    {data.map(item => (<LinkTechnologie key={item.id} title={item.name} />))}
+                </div>
+            </div>
+            <div className='divAbout'>
+                <h4>
+                    Acerca de mi
+                </h4>
+                <h5>
+                    Cuentanos sobre tí y tu experiencia IT
+                </h5>
+                <form>
+                    <label>
+                        <textarea name="textarea" rows="10" cols="50" value="Escribe aquí..."/>
+                    </label>
+                    <button type="submit" className="buttonProfile">
+                        Guardar
+                    </button>
+                </form>
+            </div>
+            <div className='divPassword'>
+                <h4>
+                    Configuración de la contraseña
+                </h4>
+                <form>
+                    <label>
+                        <input
+                            type="password"
+                            name='password'
+                            minlenght='10'
+                            required
+                            placeholder="Contraseña actual"
+                            {...register("password", {
+                                required: true
+                            })} />
+                    </label>
+                    <label>
+                        <input
+                            type="password"
+                            name='Newpassword'
+                            minlenght='10'
+                            required
+                            placeholder="Nueva Contraseña"
+                            {...register("Newpassword", {
+                                required: true
+                            })} />
+                    </label>
+                    <label>
+                        <input
+                            type="password"
+                            name='Confirmpassword'
+                            minlenght='10'
+                            required
+                            placeholder="Confirmar la nueva contraseña"
+                            {...register("Confirmpassword", {
+                                required: true
+                            })} />
+                    </label>
+                    <button type="submit" className="buttonProfile">
+                        Guardar
+                    </button>
+                </form>
+            </div>
+            <div className='deleteAcount'>
+                    <h4>
+                        Eliminar cuenta
+                    </h4>
+                    <p> ¿Seguro quieres eliminar tu cuenta de ITenseño?<br />
 
-    <div className='divProfile'>
-        <div className='divBasicInformation'>
-            <h3>Información Básica</h3>
-            <img src='./public/img/profile.png'/>
-            <form onSubmit={handleSubmit(onSubmit)}>
-                <label htmlFor='username'>
-                    <input
-                     type="text"
-                     name="name"
-                     placeholder='Nombre y Apellido'
-                     {...register("name", {required: true})}
-                    />
-                </label>
-                <label>
-                    <input
-                    type="email"
-                    name='email'
-                    placeholder='Correo Electronico'
-                    {...register("email", {required: true})}
-                    />
-                </label>
-                <label>
-                    <input
-                    type="RolIT"
-                    name='RolIT'
-                    placeholder='Rol IT'
-                    {...register("RolIT", {required: true})}
-                    />
-                </label>
-             <button type="submit" className="btn btn-primary">
-                    Guardar
-            </button>
-            <div className="section-technologies__list">
-            {data.map(item => (<LinkTechnologie key={item.id} title={item.name}/>))}
+                        Al eliminar la cuenta, toda tu información, tus clases y los datos asociados a tu cuenta se eliminarán.Esta acción no se puede deshacer.
+                    </p>
+                    <p className='deleteText'>Quiero eliminar mi cuenta</p>
+            </div>
+            </div>
         </div>
-            </form>
-        </div>
-    </div>
-  )
+    )
 }
  export default Profile;
