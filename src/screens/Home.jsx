@@ -1,11 +1,11 @@
 import React from 'react'
-import { CartAbout } from '../components/CartAbout'
-import { CartButtons } from '../components/CartButtons'
-import { CartData } from '../components/CartData'
-import { CartHome } from '../components/CartHome'
-import { CartImages } from '../components/CartImages'
-import { SectionFind } from '../components/home/SectionFind'
-import { SectionTechnologies } from '../components/home/SectionTechnologies'
+import  AboutUs  from '../components/AboutUs'
+import { CartButtons } from '../components'
+import { CartData } from '../components'
+import { CartHome } from '../components'
+import { CartImages } from '../components'
+import { SectionFind } from '../components/home'
+import { SectionTechnologies } from '../components/home'
 
 export const Home = () => {
   return (
@@ -18,7 +18,7 @@ export const Home = () => {
 
     <CartImages/>
 
-    <CartAbout/>
+    <AboutUs/>
 
     <SectionTechnologies/>
     <SectionFind/>
