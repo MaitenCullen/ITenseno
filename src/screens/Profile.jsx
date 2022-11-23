@@ -1,6 +1,7 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
-
+import data from '../mock/Data'
+import { LinkTechnologie } from '../components/LinkTechnologie'
 
 const Profile = () => {
 
@@ -13,33 +14,40 @@ const Profile = () => {
   return (
 
     <div className='divProfile'>
-        <div>
+        <div className='divBasicInformation'>
+            <h3>Información Básica</h3>
+            <img src='./public/img/profile.png'/>
             <form onSubmit={handleSubmit(onSubmit)}>
-            <input
-             placeholder="Ingrese nombre de usuario"
-             className="form-control mb-2"
-             name="usuario"
-             ref={register({
-                 required: {
-                     value: true, 
-                     message: 'Nombre es requerido'
-                     }, 
-                 maxLength: {
-                     value: 5, 
-                     message: 'No más de 5 carácteres!'
-                     },
-                 minLength: {
-                     value: 2, 
-                     message: 'Mínimo 2 carácteres'
-                     }
-             })}
-            />
-            <span className="text-danger text-small d-block mb-2">
-            {errors?.usuario?.message}
-            </span>
+                <label htmlFor='username'>
+                    <input
+                     type="text"
+                     name="name"
+                     placeholder='Nombre y Apellido'
+                     {...register("name", {required: true})}
+                    />
+                </label>
+                <label>
+                    <input
+                    type="email"
+                    name='email'
+                    placeholder='Correo Electronico'
+                    {...register("email", {required: true})}
+                    />
+                </label>
+                <label>
+                    <input
+                    type="RolIT"
+                    name='RolIT'
+                    placeholder='Rol IT'
+                    {...register("RolIT", {required: true})}
+                    />
+                </label>
              <button type="submit" className="btn btn-primary">
-                    Enviar
+                    Guardar
             </button>
+            <div className="section-technologies__list">
+            {data.map(item => (<LinkTechnologie key={item.id} title={item.name}/>))}
+        </div>
             </form>
         </div>
     </div>
