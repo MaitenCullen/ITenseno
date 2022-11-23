@@ -6,7 +6,13 @@
     flex-direction: column;
     align-items: center;
     padding: 20px 250px;
-    margin-bottom: 50px;
+    margin: 50px 0 50px;
+
+    .bar {
+        background-color: lightBlue;
+        height: 20px;
+        margin-top: -25px;
+    }
 
     p:nth-child(1){
         font-size: 2rem;
@@ -22,5 +28,30 @@
         font-weight: 700;
         font-size: .7rem;
         margin: 15px 0;
+    }
+}
+
+.formModalHeader,
+.formModalFooter {
+    background-color: $darkBlue;
+}
+
+.formModalBody {
+    background-color: $lightOrange;
+}
+
+.formTitle {
+    color: #fff;
+}
+
+.formModalFooter {
+    background-color: $darkBlue;
+}
+
+@media (max-width:600px){
+    .aboutUs {
+        
+        padding: 20px 50px;
+        margin: 50px 0 50px;
     }
 }
