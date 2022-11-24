@@ -7,7 +7,10 @@ import Register from './screens/Register';
 import Login from './screens/Login';
 import Profile  from './screens/Profile';
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 521dbfedae685fd524e775db67b1b292dbf92792
 function App() {
   return (
     <BrowserRouter>
