@@ -5,6 +5,7 @@ import { Home } from './screens/Home';
 import NavBar from './components/NavBar';
 import Register from './screens/Register';
 import Login from './screens/Login';
+import { ProfilePublic } from './screens/ProfilePublic';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path='/' element={<Home />}/>
           <Route path='/register' element={<Register />}/>
           <Route path='/login' element={<Login />}/>
+          <Route path='/profile-public' element={<ProfilePublic />}/>
         </Routes>
       </div>
       <Footer />
