@@ -16,7 +16,7 @@ function Profile({ props }) {
     return (
         <div className='divProfile'>
             <div className='divInfo'>
-            <h3 id='nameProfile'>Hola,{props}!</h3>
+            <h3 className='nameProfile'>Hola,{props}!</h3>
             <div className='divInfoData'>
                 <h5> INFORMACION PERSONAL</h5>
                 <Link style={{ textDecoration: 'none', color: 'black', borderTop:'1px solid #D9D9D9'}}>Tus clases</Link>
@@ -26,9 +26,10 @@ function Profile({ props }) {
             </div>        
             <div className='divProfileData'>
             <h3>INFORMACION PERSONAL</h3> 
-            <div className='divBasicInformation'>
+            <div className='divInside divBasicInformation'>
                 <h3>Información Básica</h3>
                 <img src='./public/img/profile.png' />
+                <h5>Editar</h5>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <label htmlFor='username'>
                         <input
@@ -64,27 +65,31 @@ function Profile({ props }) {
                 </form>
             </div>
             <div className='divTechnologies'>
+                <h4>Elige tus principales tecnologías</h4>
                 <div className="section-technologies__list">
                     {data.map(item => (<LinkTechnologie key={item.id} title={item.name} />))}
                 </div>
             </div>
-            <div className='divAbout'>
+            <div className='divInside divAbout'>
                 <h4>
                     Acerca de mi
                 </h4>
-                <h5>
+            <div>
+                 <h5>
                     Cuentanos sobre tí y tu experiencia IT
                 </h5>
                 <form>
                     <label>
-                        <textarea name="textarea" rows="10" cols="50" value="Escribe aquí..."/>
+                        <textarea name="textarea" rows="4" cols="60" value="Escribe aquí..."/>
                     </label>
-                    <button type="submit" className="buttonProfile">
-                        Guardar
-                    </button>
+                
                 </form>
+                <button type="submit" className="buttonProfile">
+                        Guardar
+                </button>
             </div>
-            <div className='divPassword'>
+            </div>
+            <div className='divInside divPassword'>
                 <h4>
                     Configuración de la contraseña
                 </h4>
@@ -127,15 +132,16 @@ function Profile({ props }) {
                     </button>
                 </form>
             </div>
-            <div className='deleteAcount'>
+            <div className='divInside divDelete'>
                     <h4>
                         Eliminar cuenta
                     </h4>
-                    <p> ¿Seguro quieres eliminar tu cuenta de ITenseño?<br />
-
-                        Al eliminar la cuenta, toda tu información, tus clases y los datos asociados a tu cuenta se eliminarán.Esta acción no se puede deshacer.
-                    </p>
+                    <div className='divText'>
+                    <p> ¿Seguro quieres eliminar tu cuenta de ITenseño? </p> 
+                   <p> Al eliminar la cuenta, toda tu información, tus clases y los datos asociados a tu cuenta se eliminarán.Esta acción no se puede deshacer.
+                    </p> 
                     <p className='deleteText'>Quiero eliminar mi cuenta</p>
+                    </div>                 
             </div>
             </div>
         </div>

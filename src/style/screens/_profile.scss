@@ -3,22 +3,18 @@
 .divProfile{
     background-color: #F5F5F5;
     display: flex;
-    justify-content: space-around;
-    & h3 {
+    justify-content: space-evenly;
+    padding: 3%;
+    & h3, & h4 {
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 700;
     font-size: 20px;
     line-height: 30px;
+    margin-bottom: 30px;
     }
-    & h4 {   
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 20px;
-    line-height: 30px;
-    }
-#nameProfile{
+    
+.nameProfile{
     color: $orange;
 }
 }
@@ -30,11 +26,43 @@
     padding: 10px;
 }
 
+%inputExtend{
+    justify-content: flex-end;
+    font-size: 16px;
+    border: 1px solid rgb(199, 199, 199);
+    border-radius: 10px;
+    width: 100%;
+    padding: 1% 5% 1% 2%;
+    padding: 2%;
+}
 .divInfo{
     display: flex;
     flex-direction: column;
 }
+.divInside{
+    input {
+        @extend %inputExtend;
+    }
+    margin-bottom: 30px;
 
+    & form {
+        display: flex;
+        width: 80%;
+        flex-direction: column;
+    }
+    
+    & label {
+        margin-bottom: 4%;
+    }
+    h4 {
+        align-self: center;
+        margin:15px 15px;
+        font-family: 'Poppins';
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 30px;
+    }
+}
 .divInfoData{
    @extend %backgroundProp;
    display: flex;
@@ -53,11 +81,31 @@
 }
 
 
-.divProfileData{
+.divProfileData {
+    width: 60%;
     display: flex;
     flex-direction: column;
-    & div {
+    & .divInside{
         @extend %backgroundProp;
+    }
+}
+
+.divTechnologies{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @extend %backgroundProp;
+    margin-bottom: 30px;
+    & .section-technologies__list {
+        gap:10px;
+    }
+    h4 {
+        align-self: center;
+        margin:15px 15px;
+        font-family: 'Poppins';
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 30px;
     }
 }
 
@@ -70,57 +118,21 @@
         height: 145px;
         margin: 10px;
     }
-    &-form {
-        width: 50%;
-        border-right: 1px solid rgb(199, 199, 199);
-        padding: 1% 5% 1% 2%;
-    }
-        & form {
-            text-align: center;
-        & :nth-child(3) {
-            display: flex;
-            justify-content: flex-end;
-            font-size: 16px;
-            & :nth-child(2) {
-                margin-left: 2%;
-            }
-        }
-        
-    }
-
-    & label {
-        margin-bottom: 4%;
-        width: 100%;
-    }
-
-    & input {
-        width: 100%;
-        border: 1px solid rgb(199, 199, 199);
-        border-radius: 10px;
-        padding: 2%;
-    }
-
-}
-
-
-
-.deleteText{
-    color:$orange;
+ & h3 {
+    margin:15px 15px;
+ }
+ & h5 {
     font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
     font-size: 18px;
-    font-weight: 700;
     line-height: 27px;
-    letter-spacing: 0em;
-    text-align: left;
-& p {
-    font-family: 'Poppins';
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 24px;
-    letter-spacing: 0em;
-    text-align: left;
-    }
+ }
+
 }
+
+
+
 
 .buttonProfile{
     border-radius: 30px;
@@ -134,7 +146,73 @@
     font-weight: 700;
     font-size: 18px;
     line-height: 50px;
+    width: fit-content;
+    align-self: center;
 }
-.divTechnologies{
-    border: none;
+
+.divAbout{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    h4 {
+        align-self: center;
+        margin:15px 15px;
+        font-family: 'Poppins';
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 30px;
+    }
+    h5 {
+        align-self: flex-start;
+        margin-bottom: 30px;
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 27px;
+    }
+    & textarea {
+        border: 1px solid rgb(199, 199, 199);
+        border-radius: 15px;
+        padding: 18px;
+        margin-bottom: 30px;
+        color:#696565;
+        font-family: 'Poppins';
+    }
+    & div {
+        display: flex;
+        flex-direction: column;
+    }
 }
+
+.divPassword,
+.divDelete {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    & p {
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        display: flex;
+        align-items: center;
+    }
+    & .divText{
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+    }
+    & .deleteText{
+        color:$orange;
+        font-family: 'Poppins';
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 27px;
+        letter-spacing: 0em;
+        text-align: left;
+        text-decoration: underline;
+    }
+}
+
