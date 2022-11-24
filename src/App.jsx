@@ -1,16 +1,12 @@
 import { BrowserRouter, Routes, Route} from 'react-router-dom'
-
 import Footer from './components/Footer';
 import { Home } from './screens/Home';
 import NavBar from './components/NavBar';
 import Register from './screens/Register';
 import Login from './screens/Login';
 import Profile  from './screens/Profile';
+import { ProfilePublic } from './screens/ProfilePublic';
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 521dbfedae685fd524e775db67b1b292dbf92792
 function App() {
   return (
     <BrowserRouter>
@@ -21,6 +17,7 @@ function App() {
           <Route path='/profile' element={<Profile />}/>
           <Route path='/register' element={<Register />}/>
           <Route path='/login' element={<Login />}/>
+          <Route path='/profile-public' element={<ProfilePublic />}/>
         </Routes>
       </div>
       <Footer />
