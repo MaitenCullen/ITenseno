@@ -11,7 +11,7 @@ const Search = () => {
     <div>
       <NavBar />
       <div className="header">
-        <div className="title">
+        <div className="title-search">
           <p>Encuentra al mejor tutor</p>
         </div>
       </div>

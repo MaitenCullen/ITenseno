@@ -31,7 +31,7 @@ const Filter = () => {
               </div>
             </Stack>
           </div>
-          <div className="more">
+          <div className="view-more">
             <a href="#">Ver más</a>
           </div>
         </div>

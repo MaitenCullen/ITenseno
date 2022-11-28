@@ -8,7 +8,7 @@ const ProfilesCards = () => {
     <div className="profiles-cards">
       <div className="card-list">
         <div className="card-item">
-          <div className="image">
+          <div className="image-profile">
             <img src={image} alt="" />
           </div>
           <div className="title-card">
