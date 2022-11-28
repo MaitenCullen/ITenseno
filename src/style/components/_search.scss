@@ -1,15 +1,26 @@
 @import '../base/settings';
 
+body {
+    font-family: 'Poppins';
+}
+
 .header {
     display: grid;
     place-content: center;
     background-color: lightblue;
     width: 100%;
     height: 300px;
+    margin-bottom: 100px;
 }
 
 .title{
     display: flex;
     width: 950px;
     height: auto;
+}
+
+.content{
+    height: 965px;
+    width: 90%;
+    margin-bottom: 422px;
 }
