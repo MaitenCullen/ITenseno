@@ -7,10 +7,10 @@ import Search from './screens/Search';
 function App() {
   return (
     <div className="App">
-      {/* <NavBar/>
+      <NavBar/>
       <Home/>
-      <Footer /> */}
-      <Search/>
+      <Footer />
+      {/* <Search/> */}
     </div>
   );
 }
