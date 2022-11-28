@@ -21,6 +21,34 @@ body {
 
 .content{
     height: 965px;
-    width: 90%;
+    width: 100%;
     margin-bottom: 422px;
+}
+
+.profile{
+    position: relative;
+}
+
+.btn-more{
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    bottom: 0px;
+    width: 100%;
+    height: 60px;
+}
+
+.btn-more button{
+    width: 160px;
+    background: #FFA000;
+    border-radius: 30px;
+    font-weight: 700;
+    font-size: 18px;
+    color: #FFFFFF;
+    border: 0;
+}
+
+.btn-more button:hover{
+    cursor: pointer;
+    opacity: calc(0.9);
 }

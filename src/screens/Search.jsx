@@ -20,8 +20,11 @@ const Search = () => {
           <Col className="me-4" md={3}>
             <Filter />
           </Col>
-          <Col className="ms-4" md={8}>
+          <Col className="profile ms-4" md={8}>
             <ProfilesCards />
+            <div className="btn-more">
+              <button>Ver más</button>
+            </div>
           </Col>
         </Row>
       </Container>
