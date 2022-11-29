@@ -1,11 +1,19 @@
+import { useContext } from "react";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
+import { getUser } from "../utilities/servicies";
 
 const Login = () => {
+    let navigate = useNavigate()
     const { register, formState: { errors }, handleSubmit } = useForm();
-    
-    const onSubmit = (data) => {
-        console.log(data)
+
+    const onSubmit = async (data) => {
+        console.log(data, "soy el register")
+        await getUser(data)
+        .then (() => navigate('/Profile'))
+
     }
+
 
   return (
     <div className="login">

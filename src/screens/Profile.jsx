@@ -1,22 +1,27 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useForm } from 'react-hook-form'
-import data from '../mock/Data'
+import data from '../utilities/Data'
 import { LinkTechnologie } from '../components/LinkTechnologie'
 import { Link } from 'react-router-dom'
+
 
 
 function Profile({ props }) {
 
     const { register, errors, handleSubmit } = useForm()
 
+
+
     const onSubmit = (data, e) => {
         console.log(data)
         e.target.reset()
+        
     }
+
     return (
         <div className='divProfile'>
             <div className='divInfo'>
-            <h3 className='nameProfile'>Hola,{props}!</h3>
+            <h3 className='nameProfile'>Hola,{}!</h3>
             <div className='divInfoData'>
                 <h5> INFORMACION PERSONAL</h5>
                 <Link style={{ textDecoration: 'none', color: 'black', borderTop:'1px solid #D9D9D9'}}>Tus clases</Link>
@@ -80,7 +85,7 @@ function Profile({ props }) {
                 </h5>
                 <form>
                     <label>
-                        <textarea name="textarea" rows="4" cols="60" value="Escribe aquí..."/>
+                        <textarea name="textarea" rows="4" cols="60" placeholder="Escribe aquí..."/>
                     </label>
                 
                 </form>
