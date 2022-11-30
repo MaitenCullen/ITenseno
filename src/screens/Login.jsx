@@ -9,7 +9,7 @@ const Login = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
 
     const onSubmit = async (data) => {
-        console.log(data, "soy el register")
+        console.log(data, "soy el login")
         await getUser(data)
         .then (() => navigate('/Profile'))
 

@@ -4,7 +4,7 @@ import { CardTechnologie } from '../components/CardTechnologie'
 
 import star from "../assets/star.png";
 
-export const ProfilePublic = () => {
+const ProfilePublic = () => {
   return (
     <div className='profile-public'>
         <div className="profile-public__header">
@@ -48,3 +48,5 @@ export const ProfilePublic = () => {
     </div>
   )
 }
+
+export default ProfilePublic;

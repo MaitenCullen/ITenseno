@@ -10,11 +10,10 @@ const Register = () => {
   let navigate = useNavigate()
   const { register, formState: { errors }, handleSubmit } = useForm();
 
-  const onSubmit = async () => {
-    console.log( register,"register!!!")
-       postUser(register)
+  const onSubmit = async (data) => {
+    console.log(data,"register!!!")
+       postUser(data)
       .then (() => navigate('/Profile'))
-
   }
 
   return (
@@ -83,7 +82,7 @@ const Register = () => {
                     </div>
                     <p>¿Ya tienes cuenta?</p>
                 <div className="login-form-foot btn-register">
-                        <button>INGRESAR</button>
+                    <button>INGRESAR</button>
                 </div>
                 </form>
             
