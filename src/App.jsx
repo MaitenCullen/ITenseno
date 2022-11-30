@@ -6,6 +6,7 @@ import Register from './screens/Register';
 import Login from './screens/Login';
 import Profile  from './screens/Profile';
 import { ProfilePublic } from './screens/ProfilePublic';
+import Search from './screens/Search';
 
 function App() {
   return (
