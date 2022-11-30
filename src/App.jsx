@@ -1,11 +1,10 @@
 import { BrowserRouter, Routes, Route} from 'react-router-dom'
-
 import Footer from './components/Footer';
 import { Home } from './screens/Home';
 import NavBar from './components/NavBar';
 import Register from './screens/Register';
 import Login from './screens/Login';
-import { ProfilePublic } from './screens/ProfilePublic';
+import Profile  from './screens/Profile';
 
 function App() {
   return (
@@ -14,6 +13,7 @@ function App() {
       <div className="App">
         <Routes>
           <Route path='/' element={<Home />}/>
+          <Route path='/profile' element={<Profile />}/>
           <Route path='/register' element={<Register />}/>
           <Route path='/login' element={<Login />}/>
           <Route path='/profile-public' element={<ProfilePublic />}/>

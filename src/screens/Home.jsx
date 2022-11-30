@@ -11,9 +11,7 @@ export const Home = () => {
       <CartHome/>
       <SectionTechnologies/>
       <SectionFind/>
-
       <CartImages/>
-
       <AboutUs/>
     </>
 
