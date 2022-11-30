@@ -5,7 +5,6 @@ import NavBar from './components/NavBar';
 import Register from './screens/Register';
 import Login from './screens/Login';
 import Profile  from './screens/Profile';
-import { ProfilePublic } from './screens/ProfilePublic';
 
 function App() {
   return (
