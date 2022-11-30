@@ -23,10 +23,10 @@ VITE 3.2.3
 Bootstrap: 5.2.2
 ReactBoostrap: 2.6.0
 NodeJS: 16.14.0
-Mongoose:6.7.2
-Nodemon:2.0.20
-pasport:0.6.0
-express:4.18.2
+Mongoose: 6.7.2
+Nodemon: 2.0.20
+pasport: 0.6.0
+express: 4.18.2
 Visual Studio Code: 1.65.2
 
 ### Equipo de trabajo
@@ -35,7 +35,8 @@ Visual Studio Code: 1.65.2
 - Josefina Cordoba
 
 ## Tester :pick:
-- Juan Nonis
+- Juan Pablo Nonis
+mail: juanpablononis@hotmail.com
 https://github.com/JuanNonis
 
 ## Backend :8ball:
@@ -44,6 +45,7 @@ diegodimitroffpetcoff@gmail.com
 https://github.com/DiegoDimitroffPetcoff
 
 - Maximiliano Palermo
+maxi.palermo.racing@gmail.com
 https://github.com/MPalermo91
 
 ## Frontend :crystal_ball:
