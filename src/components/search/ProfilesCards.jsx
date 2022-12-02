@@ -26,6 +26,7 @@ const ProfilesCards = () => {
             <button>Contactar</button>
           </div>
         </div>
+        
       </div>
     </div>
   );
