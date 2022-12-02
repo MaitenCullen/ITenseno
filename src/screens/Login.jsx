@@ -10,9 +10,17 @@ const Login = () => {
 
     const onSubmit = async (data) => {
         console.log(data, "soy el login")
-        await getUser(data)
-        .then (() => navigate('/Profile'))
-
+        try {
+            await getUser(data)
+            .then ((resp) => { 
+                if(resp) {
+                    console.log(resp, "la data usuario")
+                    navigate('/Profile')
+                }})
+        } catch (error) {
+            console.log( "no podes ingresar")
+            alert("No estas registrado amigue")
+        }
     }
 
 

@@ -2,43 +2,30 @@
 
 
 export const getUser = (data) => {
-return new Promise ((resolve, reject) => ( fetch("http://localhost:3000/login", {
-  method: 'POST', 
-  headers: {
-    "Content-Type": "application/json",
-},
-body: JSON.stringify(data)
-})
-  .then((res) => res.json())
-  .then((result) => {
-      return resolve(result);
+  return new Promise ((resolve, reject) => ( fetch("http://localhost:3000/login", {
+    method: 'POST', 
+    headers: {
+      "Content-Type": "application/json",
     },
-    (error) => {
-      console.log(error);
-    }
-  )
-))
-};
+    body: JSON.stringify(data)
+    })
+      .then((res) => res.json())
+      .then((result) => resolve(result))
+      .catch((error) => reject (error))
+  ))};
   
-export const postUser = () => {
+export const postUser = (data) => {
   return new Promise((resolve, reject) =>
     fetch("http://localhost:3000/signout", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(),
+      body: JSON.stringify(data),
     })
-      .then((res) => res.json())
-      .then(
-        (result) => {
-    
-          return resolve(result);
-        },
-        (error) => {
-          console.log(error);
-        }
-      )
+    .then((res) => res.json())
+    .then((result) => resolve(result))
+    .catch((error) => reject (error))
   )
 };
 
@@ -50,13 +37,23 @@ export const logOut = () => {
   },
   body: JSON.stringify()
   })
-    .then((res) => res.json())
-    .then((result) => {
-        return resolve(result);
-      },
-      (error) => {
-        console.log(error);
-      }
-    )
+  .then((res) => res.json())
+  .then((result) => resolve(result))
+  .catch((error) => reject (error))
+  ))
+  };
+
+  
+export const getTechnologies = () => {
+  return new Promise ((resolve, reject) => ( fetch("http://localhost:3000/allTech", {
+    method: 'GET', 
+    headers: {
+      "Content-Type": "application/json",
+  },
+  body: JSON.stringify()
+  })
+  .then((res) => res.json())
+  .then((result) => resolve(result))
+  .catch((error) => reject (error))
   ))
   };
