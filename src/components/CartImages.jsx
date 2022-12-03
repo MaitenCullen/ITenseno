@@ -1,4 +1,5 @@
 import React from "react";
+import { Navigate, useNavigate } from "react-router-dom";
 import image1 from "../assets/Rectangle1.png";
 import image2 from "../assets/Rectangle2.png";
 import image3 from "../assets/Rectangle3.png";
@@ -6,6 +7,7 @@ import image4 from "../assets/Rectangle4.png";
 import '../style/components/_cartimages.scss'
 
 export const CartImages = () => {
+  let navigate = useNavigate()
   return (
     <div id="cart-images">
       <div className="title">
@@ -66,7 +68,7 @@ export const CartImages = () => {
         </div>
       </div>
       <div className="more">
-        <button className="more-btn">
+        <button className="more-btn" onClick={() => navigate("./profile-public")}>
           VER MÁS
         </button>
       </div>

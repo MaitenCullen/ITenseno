@@ -20,6 +20,7 @@ function App() {
           <Route path='/register' element={<Register />}/>
           <Route path='/login' element={<Login />}/>
           <Route path='/profile-public' element={<ProfilePublic/>}/>
+          <Route path='/Search' element={<Search/>}/>
         </Routes>
       </div>
       <Footer />
