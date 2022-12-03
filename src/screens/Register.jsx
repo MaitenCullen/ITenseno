@@ -10,11 +10,10 @@ const Register = () => {
   let navigate = useNavigate()
   const { register, formState: { errors }, handleSubmit } = useForm();
 
-  const onSubmit = async () => {
-    console.log( register,"register!!!")
-       postUser(register)
+  const onSubmit = async (data) => {
+    console.log(data,"register!!!")
+       postUser(data)
       .then (() => navigate('/Profile'))
-
   }
 
   return (
@@ -79,17 +78,17 @@ const Register = () => {
                     </div>
                     <p>o</p>
                     <div className="login-form-foot">
-                        <button><img src="/public/google.png" width="20"/> Continue with google</button>
+                        <button><img src="/google.png" width="20"/> Continue with google</button>
                     </div>
                     <p>¿Ya tienes cuenta?</p>
                 <div className="login-form-foot btn-register">
-                        <button>INGRESAR</button>
+                    <button>INGRESAR</button>
                 </div>
                 </form>
             
             </div>
             <div className="login-wraper-img">
-                <img src="/public/img/register.png" alt="imagen registro" />
+                <img src="./img/register.png" alt="imagen registro" />
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut non architecto neque aspernatur nobis magnam veniam tempora nesciunt harum mollitia, vel iure optio dignissimos et vero, expedita voluptate corrupti dolores.</p>
             </div>
         </div>

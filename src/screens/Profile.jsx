@@ -1,9 +1,9 @@
-import React, { useContext, useEffect } from 'react'
+import React from 'react'
 import { useForm } from 'react-hook-form'
 import data from '../utilities/Data'
 import { LinkTechnologie } from '../components/LinkTechnologie'
 import { Link, useNavigate } from 'react-router-dom'
-
+import { logOut } from "../utilities/servicies";
 
 
 
@@ -17,20 +17,14 @@ function Profile({ props }) {
     }
 
 
-    const exit = async () => {
-        await logOut()
-        .then (() => navigate('/'))
-
-    }
-
     return (
         <div className='divProfile'>
             <div className='divInfo'>
             <h3 className='nameProfile'>Hola,{}!</h3>
             <div className='divInfoData'>
                 <h5> INFORMACION PERSONAL</h5>
-                <Link style={{ textDecoration: 'none', color: 'black', borderTop:'1px solid #D9D9D9'}} onClick={exit()}>Tus clases</Link>
-                <Link style={{ textDecoration: 'none', color: 'black', borderTop:'1px solid #D9D9D9'}}>Salir</Link>
+                <Link style={{ textDecoration: 'none', color: 'black', borderTop:'1px solid #D9D9D9'}} >Tus clases</Link>
+                <Link style={{ textDecoration: 'none', color: 'black', borderTop:'1px solid #D9D9D9'}} onClick={ async ()=> await logOut() .then (() => navigate('/')) }>Salir</Link>
                 <Link>XXXXX</Link>
             </div>
             </div>        
@@ -38,7 +32,7 @@ function Profile({ props }) {
             <h3>INFORMACION PERSONAL</h3> 
             <div className='divInside divBasicInformation'>
                 <h3>Información Básica</h3>
-                <img src='./public/img/profile.png' />
+                <img src='./img/profile.png' />
                 <h5>Editar</h5>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <label htmlFor='username'>
