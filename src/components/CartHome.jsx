@@ -13,7 +13,7 @@ export const CartHome = () => {
       </div>
       </div> 
       <div className='imgHome'>
-      <img src='../public/img/Home1.png'/>
+      <img src='/img/Home1.png'/>
       </div>
     </div>
   )
