@@ -73,7 +73,7 @@ const Login = () => {
                     </div>
                     <p>o</p>
                     <div className="login-form-foot">
-                        <button><img src="/public/google.png" width="20"/> Continue with google</button>
+                        <button><img src="/google.png" width="20"/> Continue with google</button>
                     </div>
                 </form>
                 <div className="btn-register">
@@ -82,7 +82,7 @@ const Login = () => {
                 </div>
             </div>
             <div className="login-wraper-img">
-                <img src="/public/img/login.png" alt="" />
+                <img src="./img/login.png" alt="" />
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut non architecto neque aspernatur nobis magnam veniam tempora nesciunt harum mollitia, vel iure optio dignissimos et vero, expedita voluptate corrupti dolores.</p>
             </div>
         </div>

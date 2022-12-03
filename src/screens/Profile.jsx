@@ -32,7 +32,7 @@ function Profile({ props }) {
             <h3>INFORMACION PERSONAL</h3> 
             <div className='divInside divBasicInformation'>
                 <h3>Información Básica</h3>
-                <img src='./public/img/profile.png' />
+                <img src='./img/profile.png' />
                 <h5>Editar</h5>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <label htmlFor='username'>
