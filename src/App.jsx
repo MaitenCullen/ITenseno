@@ -7,11 +7,14 @@ import Login from './screens/Login';
 import Profile  from './screens/Profile';
 import ProfilePublic from './screens/ProfilePublic';
 import Search from './screens/Search';
+import React from 'react';
+
 
 
 function App() {
   return (
-    <BrowserRouter>
+
+  <BrowserRouter>
       <NavBar/>
       <div className="App">
         <Routes>
@@ -25,6 +28,8 @@ function App() {
       </div>
       <Footer />
     </BrowserRouter>
+
+    
   );
 }
 

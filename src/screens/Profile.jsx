@@ -1,13 +1,28 @@
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import data from '../utilities/Data'
 import { LinkTechnologie } from '../components/LinkTechnologie'
 import { Link, useNavigate } from 'react-router-dom'
-import { logOut } from "../utilities/servicies";
+import { logOut, postUser, userHome } from "../utilities/servicies";
+import { UserContext } from '../UserContext'
 
 
 
 function Profile({ props }) {
+    const context = useContext(UserContext)
+    // let userProfile = {}
+
+    // useEffect( async () => {
+    //   const username =  context.user.username
+    //   await userHome(username) 
+    //   .then ((resp) => {
+    //     userProfile = resp.data
+    //     console.log(userProfile, "el usuario")
+    //   })
+
+    //     console.log(context, " soy el context")
+    // })
+
     let navigate = useNavigate()
     const { register, errors, handleSubmit } = useForm()
 
@@ -20,7 +35,7 @@ function Profile({ props }) {
     return (
         <div className='divProfile'>
             <div className='divInfo'>
-            <h3 className='nameProfile'>Hola,{}!</h3>
+            <h3 className='nameProfile'>Hola,{context.user.username}!</h3>
             <div className='divInfoData'>
                 <h5> INFORMACION PERSONAL</h5>
                 <Link style={{ textDecoration: 'none', color: 'black', borderTop:'1px solid #D9D9D9'}} >Tus clases</Link>
