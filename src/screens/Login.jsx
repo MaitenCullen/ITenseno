@@ -1,24 +1,28 @@
+import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import { UserContext } from "../UserContext";
 import { getUser } from "../utilities/servicies";
 
 
 
 const Login = () => {
     let navigate = useNavigate()
+    const context = useContext(UserContext)
+    console.log(context.user, " el context")
     const { register, formState: { errors }, handleSubmit } = useForm();
-
     const onSubmit = async (data) => {
         console.log(data, "soy el login")
         try {
             await getUser(data)
             .then ((resp) => { 
                 if(resp) {
-                    console.log(resp, "la data usuario")
-                    navigate('/Profile')
+                    context.addUsername(resp)
+                    console.log(resp, "la data usuario")                    
+                    navigate('/Profile')             
                 }})
         } catch (error) {
-            console.log( "no podes ingresar")
+            console.log( "no podes ingresar", error)
             alert("No estas registrado amigue")
         }
     }
