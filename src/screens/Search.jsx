@@ -9,7 +9,6 @@ import "../style/components/_search.scss";
 const Search = () => {
   return (
     <div>
-      <NavBar />
       <div className="header">
         <div className="title-search">
           <p>Encuentra al mejor tutor</p>
@@ -28,8 +27,6 @@ const Search = () => {
           </Col>
         </Row>
       </Container>
-
-      <Footer/>
     </div>
   );
 };

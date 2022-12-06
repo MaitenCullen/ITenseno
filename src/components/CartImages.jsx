@@ -1,11 +1,25 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
+import context from "react-bootstrap/esm/AccordionContext";
+import { Navigate, useNavigate } from "react-router-dom";
 import image1 from "../assets/Rectangle1.png";
 import image2 from "../assets/Rectangle2.png";
 import image3 from "../assets/Rectangle3.png";
 import image4 from "../assets/Rectangle4.png";
 import '../style/components/_cartimages.scss'
+import { UserContext } from "../UserContext";
+import { getPoints } from "../utilities/servicies";
 
 export const CartImages = () => {
+  let navigate = useNavigate()
+
+
+  // useEffect( async () => {
+  //   await getPoints() 
+  //   .then ((resp) => {
+  //     console.log(getPoints, "las estrellas")
+  //   })
+  // })
+
   return (
     <div id="cart-images">
       <div className="title">
@@ -66,7 +80,7 @@ export const CartImages = () => {
         </div>
       </div>
       <div className="more">
-        <button className="more-btn">
+        <button className="more-btn" onClick={() => navigate("./profile-public")}>
           VER MÁS
         </button>
       </div>
