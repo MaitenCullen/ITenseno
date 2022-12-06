@@ -99,3 +99,18 @@ export const getTechnologies = () => {
         .catch((error) => reject (error))
         ))
         };
+
+
+        export const getHome = () => {
+          return new Promise ((resolve, reject) => ( fetch("http://localhost:3000", {
+            method: 'GET', 
+            headers: {
+              "Content-Type": "application/json",
+          },
+          body: JSON.stringify()
+          })
+          .then((res) => res.json())
+          .then((result) => resolve(result))
+          .catch((error) => reject (error))
+          ))
+          };
