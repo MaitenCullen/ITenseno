@@ -1,10 +1,17 @@
 import React from 'react'
 import { CardClass } from '../components/CardClass'
 import { CardTechnologie } from '../components/CardTechnologie'
+import { useParams } from "react-router-dom";
 
 import star from "../assets/star.png";
 
 const ProfilePublic = () => {
+
+    const { id } = useParams()
+
+    console.log(id);
+
+
   return (
     <div className='profile-public'>
         <div className="profile-public__header">
