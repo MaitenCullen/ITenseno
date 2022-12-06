@@ -44,7 +44,7 @@ export const CartImages = () => {
       <div className="profiles">
 
         { users.map(user => (
-             <div className="cart">
+             <div className="cart" key={user._id}>
              <div className="image" onClick={() => navigate(`./profile-public/${user._id}`)}>
                <img src={image1} alt="" />
              </div>
