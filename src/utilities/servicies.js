@@ -102,7 +102,7 @@ export const getTechnologies = () => {
 
 
         export const getHome = () => {
-          return new Promise ((resolve, reject) => ( fetch("http://localhost:3000", {
+          return new Promise ((resolve, reject) => ( fetch("https://itenseno.up.railway.app/", {
             method: 'GET', 
             headers: {
               "Content-Type": "application/json",
@@ -116,7 +116,7 @@ export const getTechnologies = () => {
           };
 
           export const getProfile = (id) => {
-            return new Promise ((resolve, reject) => ( fetch(`http://localhost:3000/profile/${id}`, {
+            return new Promise ((resolve, reject) => ( fetch(`https://itenseno.up.railway.app/profile/638c7fc681a4f7c11e7db727${id}`, {
               method: 'GET', 
               headers: {
                 "Content-Type": "application/json",
