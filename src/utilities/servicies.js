@@ -1,8 +1,8 @@
 
-
+const url = 'https://itenseno.up.railway.app/'
 
 export const getUser = (data) => {
-  return new Promise ((resolve, reject) => ( fetch("http://localhost:3000/login", {
+  return new Promise ((resolve, reject) => ( fetch(`${url}login`, {
     method: 'POST', 
     headers: {
       "Content-Type": "application/json",
@@ -16,7 +16,7 @@ export const getUser = (data) => {
   
 export const postUser = (data) => {
   return new Promise((resolve, reject) =>
-    fetch("http://localhost:3000/signout", {
+    fetch(`${url}signout`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -30,7 +30,7 @@ export const postUser = (data) => {
 };
 
 export const logOut = () => {
-  return new Promise ((resolve, reject) => ( fetch("http://localhost:3000/logout", {
+  return new Promise ((resolve, reject) => ( fetch(`${url}logout`, {
     method: 'GET', 
     headers: {
       "Content-Type": "application/json",
@@ -45,7 +45,7 @@ export const logOut = () => {
 
   
 export const getTechnologies = () => {
-  return new Promise ((resolve, reject) => ( fetch("http://localhost:3000/allTech", {
+  return new Promise ((resolve, reject) => ( fetch(`${url}allTech`, {
     method: 'GET', 
     headers: {
       "Content-Type": "application/json",
@@ -59,7 +59,7 @@ export const getTechnologies = () => {
   };
 
   export const userHome = () => {
-    return new Promise ((resolve, reject) => ( fetch("http://localhost:3000/userHome", {
+    return new Promise ((resolve, reject) => ( fetch(`${url}userHome`, {
       method: 'GET', 
       headers: {
         "Content-Type": "application/json",
@@ -73,7 +73,7 @@ export const getTechnologies = () => {
     };
 
     export const profile = () => {
-      return new Promise ((resolve, reject) => ( fetch("http://localhost:3000/userHome", {
+      return new Promise ((resolve, reject) => ( fetch(`${url}userHome`, {
         method: 'POST', 
         headers: {
           "Content-Type": "application/json",
@@ -87,7 +87,7 @@ export const getTechnologies = () => {
       };
 
       export const getPoints = () => {
-        return new Promise ((resolve, reject) => ( fetch("http://localhost:3000/", {
+        return new Promise ((resolve, reject) => ( fetch(`${url}`, {
           method: 'GET', 
           headers: {
             "Content-Type": "application/json",
