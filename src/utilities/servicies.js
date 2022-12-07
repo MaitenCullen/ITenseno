@@ -114,3 +114,17 @@ export const getTechnologies = () => {
           .catch((error) => reject (error))
           ))
           };
+
+          export const getProfile = (id) => {
+            return new Promise ((resolve, reject) => ( fetch(`http://localhost:3000/profile/${id}`, {
+              method: 'GET', 
+              headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify()
+            })
+            .then((res) => res.json())
+            .then((result) => resolve(result))
+            .catch((error) => reject (error))
+            ))
+            };
