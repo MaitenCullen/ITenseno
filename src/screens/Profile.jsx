@@ -3,39 +3,72 @@ import { useForm } from 'react-hook-form'
 import data from '../utilities/Data'
 import { LinkTechnologie } from '../components/LinkTechnologie'
 import { Link, useNavigate } from 'react-router-dom'
-import { logOut, postUser, userHome } from "../utilities/servicies";
+import { logOut, postUser, profile, userHome } from "../utilities/servicies";
 import { UserContext } from '../UserContext'
+import { useState } from 'react'
 
 
 
 function Profile({ props }) {
+
+
     const context = useContext(UserContext)
-    // let userProfile = {}
 
-    // useEffect( async () => {
-    //   const username =  context.user.username
-    //   await userHome(username) 
-    //   .then ((resp) => {
-    //     userProfile = resp.data
-    //     console.log(userProfile, "el usuario")
-    //   })
+    let usersProfile = {}
+    let userID = context.user.id
 
-    //     console.log(context, " soy el context")
-    // })
 
+    useEffect(() => {
+       userHome() 
+      .then ((resp) => {
+        usersProfile = resp.allusers
+        console.log(usersProfile, "los usuarios")
+        console.log( userID, "el usuario")
+        const test = usersProfile.find((user) => user._id === userID)
+        context.addUserProfile(test)
+        console.log(context.userProfile, test, "solo 1 usuario")
+      })
+        console.log(context, " soy el context")
+    },[])
+
+   
     let navigate = useNavigate()
     const { register, errors, handleSubmit } = useForm()
 
-    const onSubmit = (data, e) => {
+
+    const onSubmit = async (data, e ) => {
+        console.log(data,"la LA DATA DALE ")
+        await profile(data)
+        .then ((resp)=> {
+        console.log(resp, "LA DATA")
+        })
+        console.log(data)
+        e.target.reset()
+    }
+    const onSubmitText = async (data, e ) => {
+        console.log(data,"EL TEXTO")
+        await profile(data)
+        .then ((resp)=> {
+        console.log(resp, "TEXTO")
+        })
+        console.log(data)
+        e.target.reset()
+    }
+    const onSubmitPassword = async (data, e ) => {
+        console.log(data,"la contraseña")
+        await profile(data)
+        .then ((resp)=> {
+        console.log(resp, "CONTRASEÑA")
+        })
         console.log(data)
         e.target.reset()
     }
 
-
     return (
+
         <div className='divProfile'>
             <div className='divInfo'>
-            <h3 className='nameProfile'>Hola,{context.user.username}!</h3>
+            <h3 className='nameProfile'>Hola, {context.userProfile.username}!</h3>
             <div className='divInfoData'>
                 <h5> INFORMACION PERSONAL</h5>
                 <Link style={{ textDecoration: 'none', color: 'black', borderTop:'1px solid #D9D9D9'}} >Tus clases</Link>
@@ -55,6 +88,7 @@ function Profile({ props }) {
                             type="text"
                             name="name"
                             placeholder='Nombre y Apellido'
+                            value={context.userProfile.username?context.userProfile.username : null} disabled
                             {...register("name", { required: true })} />
                     </label>
                     <label>
@@ -62,6 +96,7 @@ function Profile({ props }) {
                             type="email"
                             name='email'
                             placeholder='Correo Electronico'
+                            value={context.userProfile.email?context.userProfile.email : null} disabled
                             {...register("email", { required: true })} />
                     </label>
                     <label>
@@ -69,6 +104,7 @@ function Profile({ props }) {
                             type="text"
                             name='RolIT'
                             placeholder='Rol IT'
+                            Value={context.userProfile.tech?context.userProfile.tech : null }
                             {...register("RolIT", { required: true })} />
                     </label>
                     <label>
@@ -97,7 +133,7 @@ function Profile({ props }) {
                  <h5>
                     Cuentanos sobre tí y tu experiencia IT
                 </h5>
-                <form>
+                <form onSubmit={handleSubmit(onSubmitText)}>
                     <label>
                         <textarea name="textarea" className='textArea' placeholder="Escribe aquí..."/>
                     </label>
@@ -112,7 +148,7 @@ function Profile({ props }) {
                 <h4>
                     Configuración de la contraseña
                 </h4>
-                <form>
+                <form onSubmit={handleSubmit(onSubmitPassword)}>
                     <label>
                         <input
                             type="password"
@@ -121,7 +157,7 @@ function Profile({ props }) {
                             required
                             placeholder="Contraseña actual"
                             {...register("password", {
-                                required: true
+                               
                             })} />
                     </label>
                     <label>
@@ -132,7 +168,7 @@ function Profile({ props }) {
                             required
                             placeholder="Nueva Contraseña"
                             {...register("Newpassword", {
-                                required: true
+                                
                             })} />
                     </label>
                     <label>
