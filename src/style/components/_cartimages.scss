@@ -1,5 +1,4 @@
 @import '../base/settings';
-
 #cart-images {
     display: flex;
     flex-direction: column;
@@ -18,7 +17,7 @@
     margin: 0;
 }
 
-.bar{
+.bar {
     background-color: lightBlue;
     height: 20px;
     margin-top: -25px;
@@ -26,16 +25,30 @@
 
 .profiles {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     width: 85%;
     margin-top: 3.5rem;
+    flex-wrap: wrap;
+    gap: 2rem;
+    .cart {
+        height: 23rem;
+        width: 15rem;
+        width: 15rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .starts {
+        display: flex;
+        gap: 0.3rem;
+    }
 }
 
-.image{
+.image {
     margin-bottom: 20px;
 }
 
-.info{
+.info {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -43,9 +56,10 @@
 
 .info h3 {
     margin-bottom: 0;
+    text-align: center;
 }
 
-.starts{
+.starts {
     display: flex;
     justify-content: center;
 }
@@ -56,7 +70,7 @@
     height: 60px;
 }
 
-.more-btn{
+.more-btn {
     width: 100%;
     height: 100%;
     border-radius: 50px;
@@ -74,11 +88,11 @@
     opacity: calc(0.9);
 }
 
-@media (max-width:600px){
-    .title{
+@media (max-width:600px) {
+    .title {
         font-size: 23px;
     }
-    .profiles{
+    .profiles {
         justify-content: space-around;
         width: 85%;
         flex-direction: column;
