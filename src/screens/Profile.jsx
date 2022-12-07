@@ -88,7 +88,7 @@ function Profile({ props }) {
                             type="text"
                             name="name"
                             placeholder='Nombre y Apellido'
-                            value={context.userProfile.username?context.userProfile.username : null} disabled
+                            value={context.userProfile.username?context.userProfile.username : null} 
                             {...register("name", { required: true })} />
                     </label>
                     <label>
@@ -96,7 +96,7 @@ function Profile({ props }) {
                             type="email"
                             name='email'
                             placeholder='Correo Electronico'
-                            value={context.userProfile.email?context.userProfile.email : null} disabled
+                            value={context.userProfile.email?context.userProfile.email : null} 
                             {...register("email", { required: true })} />
                     </label>
                     <label>
