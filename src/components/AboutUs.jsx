@@ -15,7 +15,7 @@ const AboutUs = () => {
                 <p>SOBRE ITenseño</p>
                 <div className="bar"></div>
             </div>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae ad minima at fugit a, dolorum tempore aliquam cumque neque deserunt quaerat quas. Nam minus sed voluptatum aspernatur, debitis error excepturi.</p>
+            <p>Somos un grupo de personas que creemos en el aprendizaje constante y acompañado. Desde una pedagogía horizontal donde todos aprendemos en conjunto y con apoyos. Por ello asumimos el compromiso de brindar un espacio para conocer, practicar y poner en duda los saberes. En ITenseño encontraras senior y juniors dando clases, como así también tomandolas. La apuesta es que todos podamos aprender de la práctica de enseñar y del conocer cosas nuevas de manera gratuita y accesible a todos.</p>
             <button onClick={handleShow}>CONTACTANOS</button>
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton className='formModalHeader'>

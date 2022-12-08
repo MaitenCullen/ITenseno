@@ -91,10 +91,6 @@ const Register = () => {
                     <div  className="btn-register">
                         <button >REGISTRATE</button>
                     </div>
-                    <p>o</p>
-                    <div className="login-form-foot">
-                        <button><img src="/google.png" width="20"/> Continue with google</button>
-                    </div>
                     <p>¿Ya tienes cuenta?</p>
                 <div className="login-form-foot btn-register">
                     <button>INGRESAR</button>
@@ -104,7 +100,7 @@ const Register = () => {
             </div>
             <div className="login-wraper-img">
                 <img src="./img/register.png" alt="imagen registro" />
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut non architecto neque aspernatur nobis magnam veniam tempora nesciunt harum mollitia, vel iure optio dignissimos et vero, expedita voluptate corrupti dolores.</p>
+                <p>Bienvenid@! Somos una linda comunidad, no tenemos nunca nada en certeza, pero vamos poniendo todo en duda. En el camino aprendemos un montón. Te esperamos, seguro tenemos mucho para aportar.</p>
             </div>
         </div>
     </div>
