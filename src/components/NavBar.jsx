@@ -3,6 +3,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Link, useNavigate } from 'react-router-dom'
+import { logOut } from '../utilities/servicies';
 
 function NavBar() {
 
@@ -13,8 +14,9 @@ function NavBar() {
   console.log(id);
 
 
-  const logout = () => {
+  const logout = async () => {
     localStorage.clear()
+    await logOut() .then (() => navigate('/'))
     navigate('/') 
   }
 
@@ -29,7 +31,7 @@ function NavBar() {
             {id && <Nav.Link as={Link} to='./Profile' id='linkContacto' className='link1 mx-4'>Contacto</Nav.Link>}
             {!id && <Nav.Link as={Link} to='./Login' id='login' className='mx-4'>Inicia sesión</Nav.Link>}
             {!id && <Nav.Link as={Link} to='./Register' className='mx-4' id='check'>Regístrate</Nav.Link>}
-            {id && <Nav.Link onClick={logout} className='mx-4' id='check'>Cerrar sesión</Nav.Link>}
+            {id && <Nav.Link onClick={ logout} className='mx-4' id='check'>Cerrar sesión</Nav.Link>}
           </Nav>
         </Navbar.Collapse>
       </Container>

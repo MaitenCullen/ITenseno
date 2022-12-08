@@ -109,7 +109,7 @@ function Profile({ props }) {
     }
     const onSubmitPassword = async (data, e ) => {
         console.log(data,"la contraseña")
-        await profile(data)
+        await editProfile(data)
         .then ((resp)=> {
         console.log(resp, "CONTRASEÑA")
         })
@@ -190,7 +190,7 @@ function Profile({ props }) {
             <div className='divTechnologies'>
                 <h4>Elige tus principales tecnologías</h4>
                 <div className="section-technologies__list">
-                    {technologie.map(item => (<LinkTechnologie key={item.id} title={item.name} />))}
+                    {technologie.map((item, id) => (<LinkTechnologie key={id} title={item.name} />))}
                 </div>
     </div>
             <div className='divInside divAbout'>

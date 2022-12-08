@@ -17,8 +17,8 @@ const Register = () => {
     console.log(data,"register!!!")
     await postUser(data)
     .then ((resp) => { 
+    console.log(resp, "el registrer")
      if(resp) {
-         console.log(resp, "el registrer")
           getUser(data)
             .then ((resp) => { 
                 if(resp) {

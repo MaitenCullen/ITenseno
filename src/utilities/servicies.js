@@ -21,6 +21,7 @@ export const postUser = (data) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        "Connection": "keep-alive"
       },
       body: JSON.stringify(data),
     })
@@ -35,6 +36,7 @@ export const logOut = () => {
     method: 'GET', 
     headers: {
       "Content-Type": "application/json",
+      "Connection": "keep-alive"
   },
   body: JSON.stringify()
   })
@@ -50,6 +52,7 @@ export const getTechnologies = () => {
     method: 'GET', 
     headers: {
       "Content-Type": "application/json",
+      "Connection": "keep-alive"
   },
   body: JSON.stringify()
   })
