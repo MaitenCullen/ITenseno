@@ -2,7 +2,7 @@
 
 
 export const getUser = (data) => {
-  return new Promise ((resolve, reject) => ( fetch("http://localhost:3000/login", {
+  return new Promise ((resolve, reject) => ( fetch("https://itenseno.up.railway.app/login", {
     method: 'POST', 
     headers: {
       "Content-Type": "application/json",
@@ -17,7 +17,7 @@ export const getUser = (data) => {
   
 export const postUser = (data) => {
   return new Promise((resolve, reject) =>
-    fetch("http://localhost:3000/signout", {
+    fetch("https://itenseno.up.railway.app/signout", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -32,7 +32,7 @@ export const postUser = (data) => {
 };
 
 export const logOut = () => {
-  return new Promise ((resolve, reject) => ( fetch("http://localhost:3000/logout", {
+  return new Promise ((resolve, reject) => ( fetch("https://itenseno.up.railway.app/logout", {
     method: 'GET', 
     headers: {
       "Content-Type": "application/json",
@@ -48,7 +48,7 @@ export const logOut = () => {
 
   
 export const getTechnologies = () => {
-  return new Promise ((resolve, reject) => ( fetch("http://localhost:3000/allTech", {
+  return new Promise ((resolve, reject) => ( fetch("https://itenseno.up.railway.app/allTech", {
     method: 'GET', 
     headers: {
       "Content-Type": "application/json",
@@ -63,7 +63,7 @@ export const getTechnologies = () => {
   };
 
   export const userHome = () => {
-    return new Promise ((resolve, reject) => ( fetch(`http://localhost:3000/userHome`, {
+    return new Promise ((resolve, reject) => ( fetch(`https://itenseno.up.railway.app/userHome`, {
       method: 'GET', 
       headers: {
         "Content-Type": "application/json",
@@ -78,7 +78,7 @@ export const getTechnologies = () => {
     };
 
     export const profile = (data) => {
-      return new Promise ((resolve, reject) => ( fetch(`http://localhost:3000/userHome`, {
+      return new Promise ((resolve, reject) => ( fetch(`https://itenseno.up.railway.app/userHome`, {
         method: 'POST', 
         headers: {
           "Content-Type": "application/json",
@@ -93,7 +93,7 @@ export const getTechnologies = () => {
       };
 
       export const getPoints = () => {
-        return new Promise ((resolve, reject) => ( fetch("http://localhost:3000/", {
+        return new Promise ((resolve, reject) => ( fetch("https://itenseno.up.railway.app/", {
           method: 'GET', 
           headers: {
             "Content-Type": "application/json",
@@ -108,7 +108,7 @@ export const getTechnologies = () => {
 
 
         export const getHome = () => {
-          return new Promise ((resolve, reject) => ( fetch("http://localhost:3000/", {
+          return new Promise ((resolve, reject) => ( fetch("https://itenseno.up.railway.app/", {
             method: 'GET', 
             headers: {
               "Content-Type": "application/json",
@@ -137,7 +137,7 @@ export const getTechnologies = () => {
 
       
             export const editProfile = (data) => {
-              return new Promise ((resolve, reject) => ( fetch(`http://localhost:3000/userHome`, {
+              return new Promise ((resolve, reject) => ( fetch(`https://itenseno.up.railway.app/userHome`, {
                 method: 'POST', 
                 headers: {
                   "Content-Type": "application/json",
