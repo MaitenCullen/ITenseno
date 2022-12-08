@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form'
 import data from '../utilities/Data'
 import { LinkTechnologie } from '../components/LinkTechnologie'
 import { Link, useNavigate } from 'react-router-dom'
-import { logOut, postUser, profile, userHome } from "../utilities/servicies";
+import { editProfile, getProfile, getTechnologies, logOut, postUser, profile, userHome } from "../utilities/servicies";
 import { UserContext } from '../UserContext'
 import { useState } from 'react'
 
@@ -18,7 +18,7 @@ function Profile({ props }) {
     let userID = context.user.id
 
 
-    useEffect(() => {
+    /*useEffect(() => {
        userHome() 
       .then ((resp) => {
         usersProfile = resp.allusers
@@ -26,30 +26,85 @@ function Profile({ props }) {
         console.log( userID, "el usuario")
         const test = usersProfile.find((user) => user._id === userID)
         context.addUserProfile(test)
-        console.log(context.userProfile, test, "solo 1 usuario")
+        console.log(user, test, "solo 1 usuario")
       })
         console.log(context, " soy el context")
-    },[])
+    },[])*/
+
+    const [technologie, setTechnologie] = useState([])
+    
+    useEffect (() => {
+        getTechnologies()
+        .then((resp) => {
+            console.log(resp, "soy la tecnologia")
+            setTechnologie(resp);
+
+         })
+    },[]);
+
+
+    const [user, setUser] = useState(null)
+
+    useEffect(() => {
+        const idUser = localStorage.getItem("id")
+        getProfile(idUser) 
+       .then ((resp) => {
+         console.log(resp);
+         setUser(resp.user)
+       })
+         console.log(context, " soy el context")
+     },[])
+
 
    
     let navigate = useNavigate()
-    const { register, errors, handleSubmit } = useForm()
-
+    const { register, errors, handleSubmit } = useForm({mode: "onBlur",})
+    
+    const {
+        register: register2,
+        errors: errors2,
+        handleSubmit: handleSubmit2,
+      } = useForm({
+        mode: "onBlur",
+      });
+      
+      
+      const {
+        register: register3,
+        errors: errors3,
+        handleSubmit: handleSubmit3,
+      } = useForm({
+        mode: "onBlur",
+      });
 
     const onSubmit = async (data, e ) => {
         console.log(data,"la LA DATA DALE ")
-        await profile(data)
+        data.SearchByName = user.username
+        await editProfile(data)
         .then ((resp)=> {
         console.log(resp, "LA DATA")
+            const idUser = localStorage.getItem("id")
+            getProfile(idUser) 
+        .then ((resp) => {
+            console.log(resp);
+            setUser(resp.user)
+        })
         })
         console.log(data)
         e.target.reset()
     }
     const onSubmitText = async (data, e ) => {
         console.log(data,"EL TEXTO")
-        await profile(data)
+        data.SearchByName = user.username
+        await editProfile(data)
         .then ((resp)=> {
         console.log(resp, "TEXTO")
+            const idUser = localStorage.getItem("id")
+            getProfile(idUser) 
+        .then ((resp) => {
+            console.log(resp);
+            setUser(resp.user)
+        })
         })
         console.log(data)
         e.target.reset()
@@ -64,55 +119,70 @@ function Profile({ props }) {
         e.target.reset()
     }
 
+    const handleChange = (event) => {
+        console.log(event.target.value);
+    }
+
     return (
 
         <div className='divProfile'>
-            <div className='divInfo'>
-            <h3 className='nameProfile'>Hola, {context.userProfile.username}!</h3>
+            {user && <div className='divInfo'>
+            <h3 className='nameProfile'>Hola, {user.username}!</h3>
             <div className='divInfoData'>
                 <h5> INFORMACION PERSONAL</h5>
                 <Link style={{ textDecoration: 'none', color: 'black', borderTop:'1px solid #D9D9D9'}} >Tus clases</Link>
                 <Link style={{ textDecoration: 'none', color: 'black', borderTop:'1px solid #D9D9D9'}} onClick={ async ()=> await logOut() .then (() => navigate('/')) }>Salir</Link>
                 <Link>XXXXX</Link>
             </div>
-            </div>        
-            <div className='divProfileData'>
+            </div>}        
+            {user && <div className='divProfileData'>
             <h3>INFORMACION PERSONAL</h3> 
             <div className='divInside divBasicInformation'>
                 <h3>Información Básica</h3>
                 <img src='./img/profile.png' />
                 <h5>Editar</h5>
                 <form onSubmit={handleSubmit(onSubmit)}>
-                    <label htmlFor='username'>
+                    <label>
                         <input
                             type="text"
-                            name="name"
-                            placeholder='Nombre y Apellido'
-                            value={context.userProfile.username?context.userProfile.username : null} 
-                            {...register("name", { required: true })} />
+                            name='firstName'
+                            placeholder='Nombre'
+                            defaultValue={user.firstName?user.firstName : null }
+                            {...register("firstName", { required: true })} />
+                    </label>
+                    <label>
+                        <input
+                            type="text"
+                            name='lastName'
+                            placeholder='Apellidos'
+                            defaultValue={user.lastName?user.lastName : null }
+                            {...register("lastName", { required: true })} />
                     </label>
                     <label>
                         <input
                             type="email"
                             name='email'
                             placeholder='Correo Electronico'
-                            value={context.userProfile.email?context.userProfile.email : null} 
+                            defaultValue={user.email?user.email : null} 
                             {...register("email", { required: true })} />
                     </label>
                     <label>
                         <input
                             type="text"
-                            name='RolIT'
+                            name='tech'
                             placeholder='Rol IT'
-                            Value={context.userProfile.tech?context.userProfile.tech : null }
-                            {...register("RolIT", { required: true })} />
+                            defaultValue={user.tech?user.tech : null }
+                            {...register("tech", { required: true })} />
                     </label>
-                    <label>
+                    
+                    <label htmlFor='username'>
                         <input
                             type="text"
-                            name='XXX'
-                            placeholder='XXX'
-                            {...register("XXX", { required: true })} />
+                            name="username"
+                            placeholder='Usuario'
+                            defaultValue={user.username?user.username : null} 
+                            onChange={handleChange}
+                            {...register("username", { required: true })} />
                     </label>
                     <button type="submit" className="buttonProfile">
                         Guardar
@@ -122,9 +192,9 @@ function Profile({ props }) {
             <div className='divTechnologies'>
                 <h4>Elige tus principales tecnologías</h4>
                 <div className="section-technologies__list">
-                    {data.map(item => (<LinkTechnologie key={item.id} title={item.name} />))}
+                    {technologie.map(item => (<LinkTechnologie key={item.id} title={item.name} />))}
                 </div>
-            </div>
+    </div>
             <div className='divInside divAbout'>
                 <h4>
                     Acerca de mi
@@ -133,22 +203,25 @@ function Profile({ props }) {
                  <h5>
                     Cuentanos sobre tí y tu experiencia IT
                 </h5>
-                <form onSubmit={handleSubmit(onSubmitText)}>
+                <form onSubmit={handleSubmit2(onSubmitText)}>
                     <label>
-                        <textarea name="textarea" className='textArea' placeholder="Escribe aquí..."/>
+                        <textarea name="textarea" className='textArea' placeholder="Escribe aquí..."
+                        defaultValue={user.aboutMe?user.aboutMe : null }
+                        {...register2("aboutMe", { required: true })} 
+                        />
                     </label>
-                
-                </form>
-                <button type="submit" className="buttonProfile">
+                    <button type="submit" className="buttonProfile">
                         Guardar
-                </button>
+                    </button>
+                </form>
+                
             </div>
             </div>
             <div className='divInside divPassword'>
                 <h4>
                     Configuración de la contraseña
                 </h4>
-                <form onSubmit={handleSubmit(onSubmitPassword)}>
+                <form onSubmit={handleSubmit3(onSubmitPassword)}>
                     <label>
                         <input
                             type="password"
@@ -156,7 +229,7 @@ function Profile({ props }) {
                             minlenght='10'
                             required
                             placeholder="Contraseña actual"
-                            {...register("password", {
+                            {...register3("password", {
                                
                             })} />
                     </label>
@@ -167,21 +240,21 @@ function Profile({ props }) {
                             minlenght='10'
                             required
                             placeholder="Nueva Contraseña"
-                            {...register("Newpassword", {
+                            {...register3("Newpassword", {
                                 
                             })} />
                     </label>
-                    <label>
+                   <label>
                         <input
                             type="password"
                             name='Confirmpassword'
                             minlenght='10'
                             required
                             placeholder="Confirmar la nueva contraseña"
-                            {...register("Confirmpassword", {
+                            {...register3("Confirmpassword", {
                                 required: true
                             })} />
-                    </label>
+                        </label>
                     <button type="submit" className="buttonProfile">
                         Guardar
                     </button>
@@ -198,7 +271,7 @@ function Profile({ props }) {
                     <p className='deleteText'>Quiero eliminar mi cuenta</p>
                     </div>                 
             </div>
-            </div>
+            </div>}
         </div>
     )
 }

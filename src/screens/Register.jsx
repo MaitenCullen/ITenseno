@@ -23,7 +23,8 @@ const Register = () => {
             .then ((resp) => { 
                 if(resp) {
                     context.addUsername(resp)
-                    console.log(resp, "la data usuario")            
+                    console.log(resp, "la data usuario") 
+                    localStorage.setItem('id', resp._id)            
                     navigate('/Profile')             
                 }})           
      }})

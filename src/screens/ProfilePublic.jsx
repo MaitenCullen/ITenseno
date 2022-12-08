@@ -2,12 +2,20 @@ import React, { useState, useEffect } from 'react'
 import { CardClass } from '../components/CardClass'
 import { CardTechnologie } from '../components/CardTechnologie'
 import { useParams } from "react-router-dom";
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import Modal from 'react-bootstrap/Modal';
 
 import star from "../assets/star.png";
 import starColor from "../assets/star_color.png";
 import { getProfile } from '../utilities/servicies';
 
 const ProfilePublic = () => {
+
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
 
     const { id } = useParams()
 
@@ -28,6 +36,7 @@ const ProfilePublic = () => {
     <div className='profile-public'>
         <div className="profile-public__header">
             <button>CONTACTAR</button>
+            <button onClick={handleShow}>VALORAR</button>
         </div>
         <div className="profile-public__body">
             {user && <div className="profile-public__body__profile">
@@ -64,6 +73,28 @@ const ProfilePublic = () => {
                 <CardClass name={'Clase A'} level={'NIVEL AVANZADO'} description={'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'}/>
             </div>
         </div>
+        <Modal show={show} onHide={handleClose}>
+                <Modal.Header closeButton className='formModalHeader'>
+                    <Modal.Title className='formTitle'>Califique al docente</Modal.Title>
+                </Modal.Header>
+                <Modal.Body className="formModalBody">
+                    <Form>
+                        <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                        <Form.Label>Calificacion</Form.Label>
+                        <Form.Control
+                            type="number"
+                            placeholder="Del 1 al 5"
+                            autoFocus
+                        />
+                        </Form.Group>
+                    </Form>
+                </Modal.Body>
+                <Modal.Footer className='formModalFooter'>
+                    <Button variant="primary" onClick={handleClose}>
+                        Enviar
+                    </Button>
+                </Modal.Footer>
+            </Modal>
     </div>
   )
 }
