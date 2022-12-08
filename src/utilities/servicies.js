@@ -131,3 +131,5 @@ export const getTechnologies = () => {
             .catch((error) => reject (error))
             ))
             };
+
+      
