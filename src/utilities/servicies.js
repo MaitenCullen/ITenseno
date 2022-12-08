@@ -152,7 +152,7 @@ export const getTechnologies = () => {
 
 
               export const votePoint = (data) => {
-                return new Promise ((resolve, reject) => ( fetch(`http://localhost:3000/vote`, {
+                return new Promise ((resolve, reject) => ( fetch(`https://itenseno.up.railway.app/vote`, {
                   method: 'POST', 
                   headers: {
                     "Content-Type": "application/json",
