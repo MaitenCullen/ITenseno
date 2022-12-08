@@ -156,7 +156,7 @@ function Profile({ props }) {
                             minlenght='10'
                             required
                             placeholder="Contraseña actual"
-                            {...register("password", {
+                            {...register("password", {required: false
                                
                             })} />
                     </label>
@@ -167,7 +167,7 @@ function Profile({ props }) {
                             minlenght='10'
                             required
                             placeholder="Nueva Contraseña"
-                            {...register("Newpassword", {
+                            {...register("Newpassword", {required: false
                                 
                             })} />
                     </label>
@@ -179,7 +179,7 @@ function Profile({ props }) {
                             required
                             placeholder="Confirmar la nueva contraseña"
                             {...register("Confirmpassword", {
-                                required: true
+                                required: false
                             })} />
                     </label>
                     <button type="submit" className="buttonProfile">
