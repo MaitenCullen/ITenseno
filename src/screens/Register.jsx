@@ -1,19 +1,34 @@
 
+import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import { postUser } from "../utilities/servicies";
+import { UserContext } from "../UserContext";
+import { getUser, postUser, profile } from "../utilities/servicies";
 
 
   
 
 const Register = () => {
   let navigate = useNavigate()
+  const context = useContext(UserContext)
   const { register, formState: { errors }, handleSubmit } = useForm();
 
   const onSubmit = async (data) => {
     console.log(data,"register!!!")
-       postUser(data)
-      .then (() => navigate('/Profile'))
+    await postUser(data)
+    .then ((resp) => { 
+    console.log(resp, "el registrer")
+     if(resp) {
+          getUser(data)
+            .then ((resp) => { 
+                if(resp) {
+                    context.addUsername(resp)
+                    console.log(resp, "la data usuario") 
+                    localStorage.setItem('id', resp._id)            
+                    navigate('/Profile')             
+                }})           
+     }})
+     
   }
 
   return (
@@ -73,8 +88,8 @@ const Register = () => {
                         </div>
                         {errors.terms?.type === 'required' && <p className="form-error">Debe aceptar los términos y condiciones</p>}
                     </label>
-                    <div className="btn-register">
-                        <button>REGISTRATE</button>
+                    <div  className="btn-register">
+                        <button >REGISTRATE</button>
                     </div>
                     <p>o</p>
                     <div className="login-form-foot">

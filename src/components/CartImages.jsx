@@ -23,7 +23,6 @@ export const CartImages = () => {
   //   })
   // })
 
-  const [technologie, setTechnologie] = useState([])
 
   const [users, setUsers] = useState([])
     
@@ -49,7 +48,7 @@ export const CartImages = () => {
                <img src={image1} alt="" />
              </div>
              <div className="info">
-               <h3>{ user.firstName }</h3>
+               <h3>{ user.username }</h3>
                <p>{ user.tech }</p>
              </div>
              <div className="starts">

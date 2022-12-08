@@ -6,6 +6,7 @@ export const getUser = (data) => {
     method: 'POST', 
     headers: {
       "Content-Type": "application/json",
+      "Connection": "keep-alive"
     },
     body: JSON.stringify(data)
     })
@@ -20,6 +21,7 @@ export const postUser = (data) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        "Connection": "keep-alive"
       },
       body: JSON.stringify(data),
     })
@@ -34,6 +36,7 @@ export const logOut = () => {
     method: 'GET', 
     headers: {
       "Content-Type": "application/json",
+      "Connection": "keep-alive"
   },
   body: JSON.stringify()
   })
@@ -49,6 +52,7 @@ export const getTechnologies = () => {
     method: 'GET', 
     headers: {
       "Content-Type": "application/json",
+      "Connection": "keep-alive"
   },
   body: JSON.stringify()
   })
@@ -59,10 +63,11 @@ export const getTechnologies = () => {
   };
 
   export const userHome = () => {
-    return new Promise ((resolve, reject) => ( fetch("http://localhost:3000/userHome", {
+    return new Promise ((resolve, reject) => ( fetch(`http://localhost:3000/userHome`, {
       method: 'GET', 
       headers: {
         "Content-Type": "application/json",
+        "Connection": "keep-alive"
     },
     body: JSON.stringify()
     })
@@ -72,13 +77,14 @@ export const getTechnologies = () => {
     ))
     };
 
-    export const profile = () => {
-      return new Promise ((resolve, reject) => ( fetch("http://localhost:3000/userHome", {
+    export const profile = (data) => {
+      return new Promise ((resolve, reject) => ( fetch(`http://localhost:3000/userHome`, {
         method: 'POST', 
         headers: {
           "Content-Type": "application/json",
+          "Connection": "keep-alive"
       },
-      body: JSON.stringify()
+      body: JSON.stringify(data)
       })
       .then((res) => res.json())
       .then((result) => resolve(result))
@@ -102,7 +108,7 @@ export const getTechnologies = () => {
 
 
         export const getHome = () => {
-          return new Promise ((resolve, reject) => ( fetch("http://localhost:3000", {
+          return new Promise ((resolve, reject) => ( fetch("http://localhost:3000/", {
             method: 'GET', 
             headers: {
               "Content-Type": "application/json",
@@ -116,7 +122,7 @@ export const getTechnologies = () => {
           };
 
           export const getProfile = (id) => {
-            return new Promise ((resolve, reject) => ( fetch(`http://localhost:3000/profile/${id}`, {
+            return new Promise ((resolve, reject) => ( fetch(`https://itenseno.up.railway.app/profile/${id}`, {
               method: 'GET', 
               headers: {
                 "Content-Type": "application/json",
@@ -128,3 +134,18 @@ export const getTechnologies = () => {
             .catch((error) => reject (error))
             ))
             };
+
+      
+            export const editProfile = (data) => {
+              return new Promise ((resolve, reject) => ( fetch(`http://localhost:3000/userHome`, {
+                method: 'POST', 
+                headers: {
+                  "Content-Type": "application/json",
+              },
+              body: JSON.stringify(data)
+              })
+              .then((res) => res.json())
+              .then((result) => resolve(result))
+              .catch((error) => reject (error))
+              ))
+              };

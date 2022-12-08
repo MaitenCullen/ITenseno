@@ -9,16 +9,17 @@ import { getUser } from "../utilities/servicies";
 const Login = () => {
     let navigate = useNavigate()
     const context = useContext(UserContext)
-    console.log(context.user, " el context")
     const { register, formState: { errors }, handleSubmit } = useForm();
+
     const onSubmit = async (data) => {
-        console.log(data, "soy el login")
         try {
             await getUser(data)
             .then ((resp) => { 
                 if(resp) {
                     context.addUsername(resp)
-                    console.log(resp, "la data usuario")                    
+                    console.log(resp, "la data usuario")
+
+                    localStorage.setItem('id', resp._id)           
                     navigate('/Profile')             
                 }})
         } catch (error) {
