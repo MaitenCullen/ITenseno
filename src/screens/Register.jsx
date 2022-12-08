@@ -3,7 +3,7 @@ import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../UserContext";
-import { getUser, postUser } from "../utilities/servicies";
+import { getUser, postUser, profile } from "../utilities/servicies";
 
 
   

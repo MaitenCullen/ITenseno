@@ -22,11 +22,8 @@ function Profile({ props }) {
        userHome() 
       .then ((resp) => {
         usersProfile = resp.allusers
-        console.log(usersProfile, "los usuarios")
-        console.log( userID, "el usuario")
         const test = usersProfile.find((user) => user._id === userID)
         context.addUserProfile(test)
-        console.log(context.userProfile, test, "solo 1 usuario")
       })
         console.log(context, " soy el context")
     },[])
@@ -40,9 +37,9 @@ function Profile({ props }) {
         console.log(data,"la LA DATA DALE ")
         await profile(data)
         .then ((resp)=> {
+        profile(data)
         console.log(resp, "LA DATA")
         })
-        console.log(data)
         e.target.reset()
     }
     const onSubmitText = async (data, e ) => {
