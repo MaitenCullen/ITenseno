@@ -50,6 +50,7 @@ const ProfilePublic = () => {
                 console.log(resp, "soy la tecnologia")
                 setUser(resp.user);
                 setShow(false);
+                setVote(5)
              })
          })
 
