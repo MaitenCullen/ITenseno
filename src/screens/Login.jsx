@@ -76,10 +76,6 @@ const Login = () => {
                     <div className="login-form-foot">
                         <button>INGRESAR</button>
                     </div>
-                    <p>o</p>
-                    <div className="login-form-foot">
-                        <button><img src="/google.png" width="20"/> Continue with google</button>
-                    </div>
                 </form>
                 <div className="btn-register">
                     <p>¿Todavia no tienes cuenta?</p>
@@ -88,7 +84,7 @@ const Login = () => {
             </div>
             <div className="login-wraper-img">
                 <img src="./img/login.png" alt="" />
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut non architecto neque aspernatur nobis magnam veniam tempora nesciunt harum mollitia, vel iure optio dignissimos et vero, expedita voluptate corrupti dolores.</p>
+                <p>Que lindo verte de nuevo! Esperemos que estés con ganas de hacer y deshacer muchos saberes. Hay muchas clases y miles de tecnologías esperandote</p>
             </div>
         </div>
     </div>
