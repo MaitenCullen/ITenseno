@@ -149,3 +149,18 @@ export const getTechnologies = () => {
               .catch((error) => reject (error))
               ))
               };
+
+
+              export const votePoint = (data) => {
+                return new Promise ((resolve, reject) => ( fetch(`http://localhost:3000/vote`, {
+                  method: 'POST', 
+                  headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(data)
+                })
+                .then((res) => res.json())
+                .then((result) => resolve(result))
+                .catch((error) => reject (error))
+                ))
+                };
