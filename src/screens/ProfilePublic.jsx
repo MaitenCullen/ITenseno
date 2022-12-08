@@ -8,7 +8,7 @@ import Modal from 'react-bootstrap/Modal';
 
 import star from "../assets/star.png";
 import starColor from "../assets/star_color.png";
-import { getProfile } from '../utilities/servicies';
+import { getProfile, votePoint } from '../utilities/servicies';
 
 const ProfilePublic = () => {
 
@@ -31,6 +31,37 @@ const ProfilePublic = () => {
          })
     },[]);
 
+
+    const [vote, setVote] = useState(5)
+
+    const handleSend = () => {
+
+        const payload = {
+            name : user.username,
+            VotoNuevo : vote
+        }
+
+        votePoint(payload)
+        .then((resp) => {
+            console.log(resp, "soy la tecnologia")
+            //setUser(resp.user);
+            getProfile(id)
+            .then((resp) => {
+                console.log(resp, "soy la tecnologia")
+                setUser(resp.user);
+                setShow(false);
+                setVote(5)
+             })
+         })
+
+        setShow(false);
+
+    }
+
+    const handleChange = (e) => {
+        console.log(e.target.value);
+        setVote(e.target.value)
+    }
 
   return (
     <div className='profile-public'>
@@ -85,12 +116,15 @@ const ProfilePublic = () => {
                             type="number"
                             placeholder="Del 1 al 5"
                             autoFocus
+                            name="vote"
+                            value={vote}
+                            onChange={(e)=> handleChange(e)}
                         />
                         </Form.Group>
                     </Form>
                 </Modal.Body>
                 <Modal.Footer className='formModalFooter'>
-                    <Button variant="primary" onClick={handleClose}>
+                    <Button variant="primary" onClick={handleSend}>
                         Enviar
                     </Button>
                 </Modal.Footer>
