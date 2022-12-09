@@ -34,8 +34,8 @@ const Register = () => {
   return (
     <div className="register">
             <div className="login">
-        <div className="login-wraper">
-            <div className="login-wraper-form">
+        <div className="login-wraper res-mobile">
+            <div className="login-wraper-form res-form">
                 <h4>Crea tu cuenta</h4>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <label htmlFor="username">
