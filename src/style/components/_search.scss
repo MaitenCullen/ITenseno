@@ -34,9 +34,7 @@ body {
 
 .btn-more{
     display: flex;
-    position: absolute;
     justify-content: center;
-    bottom: 0px;
     width: 100%;
     height: 60px;
 }
@@ -54,4 +52,44 @@ body {
 .btn-more button:hover{
     cursor: pointer;
     opacity: calc(0.9);
+}
+
+@media(max-width:600px){
+    .header {
+        margin-bottom: 10px;
+    }
+    .title-search {
+        width: 100%;
+    }
+    p {
+        text-align: center;
+    }
+    .vstack {
+        justify-content: center;
+        align-items: center;
+    }
+    .tecnology,
+    .nivel,
+    .rol {
+        width: 75%;
+    }
+    .content {
+        height: auto;
+        width: 100%;
+        margin-bottom: 5%;
+    }
+    .profile {
+        margin-left: 0 !important;
+    }
+    .profiles-cards {
+        margin-bottom: 10px;
+    }
+    .card-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+        justify-content: center;
+        padding-top: 10px;
+    }
+
 }
