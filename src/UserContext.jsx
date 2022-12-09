@@ -9,6 +9,12 @@ const UserProvider = ({children}) => {
 
 const [ user, setUser] = useState([]);
 
+const [userProfile, setUserProfile] = useState([])
+
+const addUserProfile = (data) => {
+    setUserProfile(data)
+}
+
 const addUsername = (data) => {
     setUser(data)
 }
@@ -102,7 +108,10 @@ const valueForChildren = {
     node,
     deno,
     javascript,
-    java
+    java,
+    userProfile,
+    addUserProfile,
+
 }
 
 return (

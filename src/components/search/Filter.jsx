@@ -3,7 +3,6 @@ import { useEffect, useState, useContext } from "react";
 import { Container, Stack } from "react-bootstrap";
 import { json } from "react-router-dom";
 import "../../style/components/_filter.scss";
-import { filter } from "../../utilities/servicies";
 import { UserContext } from '../../UserContext'
 
 const Filter = () => {
