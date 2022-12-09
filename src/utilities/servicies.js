@@ -1,5 +1,5 @@
 
-const url = 'https://itenseno.up.railway.app/'
+const url = 'http://localhost:3000/'
 
 export const getUser = (data) => {
   return new Promise ((resolve, reject) => ( fetch(`${url}login`, {
@@ -99,3 +99,18 @@ export const getTechnologies = () => {
         .catch((error) => reject (error))
         ))
         };
+
+        export const filter = () => {
+          return new Promise ((resolve, reject) => (fetch(`${url}`, {   
+            mode: 'no-cors',
+            method: 'GET',
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify()
+          })
+          .then((res) => res.json())
+          .then(result => resolve(result))
+          .catch(error => reject(error))
+          ))
+        }

@@ -1,7 +1,87 @@
+import { useEffect, useState } from "react";
+
 import { Container, Stack } from "react-bootstrap";
+import { json } from "react-router-dom";
 import "../../style/components/_filter.scss";
+import { filter } from "../../utilities/servicies";
 
 const Filter = () => {
+
+  const [tech, setTech] = useState([]);
+  useEffect(() => {
+    const Data = async () => {
+      await fetch("http://localhost:3000/")
+      .then(res => res.json())
+      .then(res => setTech(res.allusers))
+    }
+    Data()
+  }, []);
+
+  console.log(tech)
+
+
+  const [node, setNode] = useState(false)
+  const [deno, setDeno] = useState(false)
+  const [javascript, setJavaScript] = useState(false)
+  const [java, setJava] = useState(false)
+
+  const handleNode = async (data) => {
+    setNode(!node)
+    if(!node){
+      await fetch('http://localhost:3000/',{
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data)
+      })
+      .then(res => res.json())
+      .then(res => console.log(res))
+    }
+  }
+  const handleDeno = async (data) => {
+    setDeno(!deno)
+    if(!deno){
+      await fetch('http://localhost:3000/',{
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data)
+      })
+      .then(res => res.json())
+      .then(res => console.log(res))
+    }
+  }
+  const handleJs = async (data) => {
+    setJavaScript(!javascript)
+    if(!javascript){
+      await fetch('http://localhost:3000/',{
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data)
+      })
+      .then(res => res.json())
+      .then(res => console.log(res))
+    }
+  }
+  const handleJava = async (data) => {
+    setJava(!java)
+    if(!java){
+      await fetch('http://localhost:3000/',{
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data)
+      })
+      .then(res => res.json())
+      .then(res => console.log(res))
+    }
+  }
+
   return (
     <Container>
       <Stack gap={3}>
@@ -9,25 +89,21 @@ const Filter = () => {
           <div className="title-filter">Tecnología</div>
           <div className="options">
             <Stack gap={4}>
-              <div className="option">
-                <input type="checkbox" />
-                <p>TECNOLOGIA 1</p>
+              <div className="option" >
+                <input type="checkbox" onChange={() => handleNode({name: "node.js"})} />
+                <p>NODE.JS</p>
               </div>
-              <div className="option">
-                <input type="checkbox" />
-                <p>TECNOLOGIA 2</p>
+              <div className="option" >
+                <input type="checkbox" onChange={() => handleDeno({name: "deno"})} />
+                <p>DENO</p>
               </div>
-              <div className="option">
-                <input type="checkbox" />
-                <p>TECNOLOGIA 3</p>
+              <div className="option" >
+                <input type="checkbox" onChange={() => handleJs({name: "javascript"})} />
+                <p>JAVASCRIPT</p>
               </div>
-              <div className="option">
-                <input type="checkbox" />
-                <p>TECNOLOGIA 4</p>
-              </div>
-              <div className="option">
-                <input type="checkbox" />
-                <p>TECNOLOGIA 5</p>
+              <div className="option" >
+                <input type="checkbox" onChange={() => handleJava({name: "java"})} />
+                <p>JAVA</p>
               </div>
             </Stack>
           </div>
