@@ -1,86 +1,24 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 
 import { Container, Stack } from "react-bootstrap";
 import { json } from "react-router-dom";
 import "../../style/components/_filter.scss";
 import { filter } from "../../utilities/servicies";
+import { UserContext } from '../../UserContext'
 
 const Filter = () => {
 
-  const [tech, setTech] = useState([]);
+  const { renderView, handleNode, handleDeno, handleJs, handleJava } = useContext(UserContext)
+
   useEffect(() => {
     const Data = async () => {
       await fetch("http://localhost:3000/")
       .then(res => res.json())
-      .then(res => setTech(res.allusers))
+      .then(res => renderView(res.allusers))
     }
     Data()
   }, []);
 
-  console.log(tech)
-
-
-  const [node, setNode] = useState(false)
-  const [deno, setDeno] = useState(false)
-  const [javascript, setJavaScript] = useState(false)
-  const [java, setJava] = useState(false)
-
-  const handleNode = async (data) => {
-    setNode(!node)
-    if(!node){
-      await fetch('http://localhost:3000/',{
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data)
-      })
-      .then(res => res.json())
-      .then(res => console.log(res))
-    }
-  }
-  const handleDeno = async (data) => {
-    setDeno(!deno)
-    if(!deno){
-      await fetch('http://localhost:3000/',{
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data)
-      })
-      .then(res => res.json())
-      .then(res => console.log(res))
-    }
-  }
-  const handleJs = async (data) => {
-    setJavaScript(!javascript)
-    if(!javascript){
-      await fetch('http://localhost:3000/',{
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data)
-      })
-      .then(res => res.json())
-      .then(res => console.log(res))
-    }
-  }
-  const handleJava = async (data) => {
-    setJava(!java)
-    if(!java){
-      await fetch('http://localhost:3000/',{
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data)
-      })
-      .then(res => res.json())
-      .then(res => console.log(res))
-    }
-  }
 
   return (
     <Container>
