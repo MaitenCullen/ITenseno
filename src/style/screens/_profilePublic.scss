@@ -92,3 +92,32 @@
         }
     }
 }
+
+@media(max-width:600px){
+    .profile-public__header {
+        background-color: #FFECB3;
+        display: flex;
+        justify-content: space-around;
+        padding: 10px;
+        align-items: center;
+        height: auto;
+        position: absolute;
+        top: 520px;
+        width: 100%;
+    }
+
+    .profile-public__body {
+        padding: 0;
+        
+        &__profile {
+            width: 100%;
+            margin-top: 0;
+            height: 450px;
+        }
+
+        &__classes {
+            margin: auto;
+            width: 100%;
+        }
+    }
+}
