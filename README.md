@@ -3,8 +3,9 @@
 ITenseño es una plataforma digital para compartir el conocimiento. Basado en el aprendizaje comunitario y compartido, en ITenseño todos somos educadores. Quienes busquen apoyos al momento de estudiar alguna tecnología, lo encontran en la app. Quienes deseen compartir sus conocimientos e internalizarlos por medio de la practica de la enseñanza, podrán publicar clases y adquirir experiencia compartiendo con otros. 
 - ITenseño esta pensado originalmente para personas que estan estudiando alguna tecnología, como asi también para quienes conocen de alguna o varias y estan dando sus primeros pasos en el mundo IT. Es una forma de adquirir experiencia y compartir los conocimientos. :fist_right::fist_left:
 
-## Gif proyecto
-Proximamente
+## Link Deploy
+
+https://s5-06-mern-git-dev-itenseno.vercel.app/
 
 ## Como instalar?
 - ITenseño es una app construida con React JS.
