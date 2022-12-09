@@ -31,8 +31,8 @@ const Login = () => {
 
   return (
     <div className="login">
-        <div className="login-wraper">
-            <div className="login-wraper-form">
+        <div className="login-wraper login-mobile">
+            <div className="login-wraper-form login-f-mobile">
                 <h4>Inicia Sesión</h4>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <label htmlFor="username">
