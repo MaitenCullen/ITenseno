@@ -8,7 +8,7 @@ import { UserContext } from '../../UserContext'
 
 const ProfilesCards = () => {
 
-  const { tech } = useContext(UserContext)
+  const { render, tech } = useContext(UserContext)
 
   console.log(tech)
 
@@ -16,7 +16,7 @@ const ProfilesCards = () => {
     <div className="profiles-cards">
       <div className="card-list">
         {
-          tech.map(({_id, username, tech, points}) => (
+          render.map(({_id, username, tech, points}) => (
             <div className="card-item" key={_id}>
             <div className="image-profile">
               <img src={image} alt="" />

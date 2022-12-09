@@ -7,17 +7,73 @@ import { UserContext } from '../../UserContext'
 
 const Filter = () => {
 
-  const { renderView, handleNode, handleDeno, handleJs, handleJava } = useContext(UserContext)
+  const { renderView, handleNode, handleDeno, handleJs, handleJava, tech, setStateNode, setStateDeno, setStateJavaScript, setStateJava } = useContext(UserContext)
+
+
 
   useEffect(() => {
     const Data = async () => {
-      await fetch("http://localhost:3000/")
+      await fetch("https://itenseno.up.railway.app/")
       .then(res => res.json())
       .then(res => renderView(res.allusers))
     }
+
+    const Node = async () => {
+      await fetch('https://itenseno.up.railway.app/',{
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({name: "node.js"})
+      })
+      .then(res => res.json())
+      .then(res => setStateNode(res))
+    }
+
+    const Deno = async () => {
+      await fetch('https://itenseno.up.railway.app/',{
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({name: "deno"})
+      })
+      .then(res => res.json())
+      .then(res => setStateDeno(res))
+    }
+
+    const JavaScript = async () => {
+      await fetch('https://itenseno.up.railway.app/',{
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({name: "javascript"})
+      })
+      .then(res => res.json())
+      .then(res => setStateJavaScript(res))
+    }
+
+    const Java = async () => {
+      await fetch('https://itenseno.up.railway.app/',{
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({name: "java"})
+      })
+      .then(res => res.json())
+      .then(res => setStateJava(res))
+    }
     Data()
+    Node()
+    JavaScript()
+    Java()
   }, []);
 
+  console.log(tech)
+
+ 
 
   return (
     <Container>

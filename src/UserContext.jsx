@@ -26,28 +26,33 @@ const addPoints = (data) => {
 }
 
 /**################### SEARCH ################################# */
-const [tech, setTech] = useState([]);
+const [render, setRender] = useState([]);
 const [node, setNode] = useState(false)
 const [deno, setDeno] = useState(false)
 const [javascript, setJavaScript] = useState(false)
 const [java, setJava] = useState(false)
+const [tech, setTech] = useState()
+
+const [ stateNode, setStateNode ] = useState()
+const [ stateDeno, setStateDeno ] = useState()
+const [ stateJavaScript, setStateJavaScript ] = useState()
+const [ stateJava, setStateJava ] = useState()
+
+const viewTech = () => {
+    if(!node){
+        setTech(node)
+    }
+}
 
 const renderView = (data) => {
-    setTech(data)
+    setRender(data)
 }
 
 const handleNode = async (data) => {
   setNode(!node)
+  //viewTech()
   if(!node){
-    await fetch('http://localhost:3000/',{
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data)
-    })
-    .then(res => res.json())
-    .then(res => console.log(res))
+    setTech(stateNode)
   }
 }
 const handleDeno = async (data) => {
@@ -100,6 +105,7 @@ const valueForChildren = {
     usersPoints,
     addPoints,
     renderView,
+    render,
     tech,
     handleNode,
     handleDeno,
@@ -111,6 +117,10 @@ const valueForChildren = {
     java,
     userProfile,
     addUserProfile,
+    setStateNode,
+    setStateDeno,
+    setStateJavaScript,
+    setStateJava
 
 }
 
