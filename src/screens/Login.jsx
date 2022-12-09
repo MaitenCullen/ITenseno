@@ -1,24 +1,29 @@
+import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import { UserContext } from "../UserContext";
 import { getUser } from "../utilities/servicies";
 
 
 
 const Login = () => {
     let navigate = useNavigate()
+    const context = useContext(UserContext)
     const { register, formState: { errors }, handleSubmit } = useForm();
 
     const onSubmit = async (data) => {
-        console.log(data, "soy el login")
         try {
             await getUser(data)
             .then ((resp) => { 
                 if(resp) {
+                    context.addUsername(resp)
                     console.log(resp, "la data usuario")
-                    navigate('/Profile')
+
+                    localStorage.setItem('id', resp._id)           
+                    navigate('/Profile')             
                 }})
         } catch (error) {
-            console.log( "no podes ingresar")
+            console.log( "no podes ingresar", error)
             alert("No estas registrado amigue")
         }
     }
@@ -26,8 +31,8 @@ const Login = () => {
 
   return (
     <div className="login">
-        <div className="login-wraper">
-            <div className="login-wraper-form">
+        <div className="login-wraper login-mobile">
+            <div className="login-wraper-form login-f-mobile">
                 <h4>Inicia Sesión</h4>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <label htmlFor="username">
@@ -71,10 +76,6 @@ const Login = () => {
                     <div className="login-form-foot">
                         <button>INGRESAR</button>
                     </div>
-                    <p>o</p>
-                    <div className="login-form-foot">
-                        <button><img src="/google.png" width="20"/> Continue with google</button>
-                    </div>
                 </form>
                 <div className="btn-register">
                     <p>¿Todavia no tienes cuenta?</p>
@@ -83,7 +84,7 @@ const Login = () => {
             </div>
             <div className="login-wraper-img">
                 <img src="./img/login.png" alt="" />
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut non architecto neque aspernatur nobis magnam veniam tempora nesciunt harum mollitia, vel iure optio dignissimos et vero, expedita voluptate corrupti dolores.</p>
+                <p>Que lindo verte de nuevo! Esperemos que estés con ganas de hacer y deshacer muchos saberes. Hay muchas clases y miles de tecnologías esperandote</p>
             </div>
         </div>
     </div>

@@ -7,11 +7,14 @@ import Login from './screens/Login';
 import Profile  from './screens/Profile';
 import ProfilePublic from './screens/ProfilePublic';
 import Search from './screens/Search';
+import React from 'react';
+
 
 
 function App() {
   return (
-    <BrowserRouter>
+
+  <BrowserRouter>
       <NavBar/>
       <div className="App">
         <Routes>
@@ -19,12 +22,14 @@ function App() {
           <Route path='/profile' element={<Profile />}/>
           <Route path='/register' element={<Register />}/>
           <Route path='/login' element={<Login />}/>
-          <Route path='/profile-public' element={<ProfilePublic/>}/>
+          <Route path='/profile-public/:id' element={<ProfilePublic/>}/>
           <Route path='/Search' element={<Search/>}/>
         </Routes>
       </div>
       <Footer />
     </BrowserRouter>
+
+    
   );
 }
 
