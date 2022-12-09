@@ -5,17 +5,17 @@ const data = [
     {
         id: 1,
         image: "https://miro.medium.com/max/1024/1*vxjAHkrXbGG6gOiPZgjeZA.jpeg",
-        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea maxime libero expedita laboriosam alias esse eum omnis quasi veniam! Dicta, ipsam! Ut voluptas sunt pariatur, provident quae reprehenderit exercitationem quam."
+        description: "Clases personalizadas según niveles y tecnologías. Podes tomar todas las que necesites y en los horarios que te sean más cómodos, contarás con el seguimiento personalizado de quien de esa clase."
     },
     {
         id: 2,
         image: "https://www.ikusi.com/wp-content/uploads/2022/06/post_thumbnail-4efabca9bd56b38edc0058c4ba006481.jpeg",
-        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea maxime libero expedita laboriosam alias esse eum omnis quasi veniam! Dicta, ipsam! Ut voluptas sunt pariatur, provident quae reprehenderit exercitationem quam."
+        description: "Variedad de tecnologías. sabemos que el mundo IT está en constante cambio, ¡acá encontrarás personas que saben sobre lo último que está sucediendo!."
     },
     {
         id: 3,
         image: "https://en-red.mx/wp-content/uploads/2019/12/5_grandes_mitos-1080x675.jpg",
-        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea maxime libero expedita laboriosam alias esse eum omnis quasi veniam! Dicta, ipsam! Ut voluptas sunt pariatur, provident quae reprehenderit exercitationem quam."
+        description: "Aprendizaje constante. Apostamos a que puedan dar acompañamiento y seguimiento a otras personas que se encuentran aprendiendo en el mundo IT."
     },
 ]
 

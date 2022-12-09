@@ -54,9 +54,8 @@ export const SectionTechnologies = () => {
         getTechnologies()
         .then((resp) => {
             console.log(resp, "soy la tecnologia")
-            resp.map((item) => {
-                setTechnologie(technologie => [...technologie, {...item}]);
-            })
+            setTechnologie(resp);
+
          })
     },[]);
 
