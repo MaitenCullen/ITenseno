@@ -90,12 +90,15 @@ const ProfilePublic = () => {
                             <CardTechnologie name={user.tech} level={'Avanzado'}/>
                             {/*<CardTechnologie name={user.tech} level={'Avanzado'}/>
                             <CardTechnologie name={user.tech} level={'Avanzado'}/>*/}
-                        </div>
+                        </div>                       
                     </div>
-                   
                 </div>
                 <h5>Acerca de mí</h5>
                 <p>{user.aboutMe}</p>
+                <div className="button-mobile">
+                    <button>CONTACTAR</button>
+                    <button onClick={handleShow}>VALORAR</button>
+                </div>
             </div>}
             <div className="profile-public__body__classes">
                 <h3>Próximas clases</h3>

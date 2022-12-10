@@ -20,6 +20,7 @@
             text-align: center;
             color: #FFFFFF;
             border: none;
+            margin:3px
         }
     }
     &__body {
@@ -71,8 +72,8 @@
                 font-family: 'Poppins';
                 font-style: normal;
                 font-weight: 600;
-                font-size: 18px;
-                line-height: 50px;
+                font-size: 15px;
+                line-height: 40px;
             }
         }
         &__classes {
@@ -92,32 +93,73 @@
         }
     }
 }
-
+@media(min-width:600px){
+    .button-mobile{
+        display: none;
+    }
+}
 @media(max-width:600px){
     .profile-public__header {
-        background-color: #FFECB3;
-        display: flex;
-        justify-content: space-around;
-        padding: 10px;
-        align-items: center;
-        height: auto;
-        position: absolute;
-        top: 520px;
-        width: 100%;
+        display: none;
+        & button {
+            display:none;
+        }
     }
 
     .profile-public__body {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
         padding: 0;
         
         &__profile {
             width: 100%;
             margin-top: 0;
-            height: 450px;
         }
 
         &__classes {
-            margin: auto;
             width: 100%;
         }
+    }
+    .profile-public__body__profile{
+        width: 80%;
+        margin-top: 15px;
+    }
+    .profile-public__body__profile__data{
+        flex-direction: column;
+    }
+    .button-mobile{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        & button{
+            width: 195px;
+            height: 60px;
+            background: #00BCD4;
+            border-radius: 50px;
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 18px;
+            line-height: 50px;
+            align-items: center;
+            text-align: center;
+            color: #FFFFFF;
+            border: none;
+            margin:3px
+        }
+       
+    }
+    .profile-public__body__profile {
+        h5 { 
+            text-align: center;
+        }
+    }
+    .profile-public__body__classes{
+        padding: 20px;
+        width: 80%;
+    }
+    .profile-public__body__profile__data__right{
+        margin-left: 0;
     }
 }
